@@ -1,7 +1,7 @@
 const headerNavLinks = [
-    { href: "/navmenu1", title: "Hjem" },
-    { href: "/navmenu2", title: "Infosenter" },
-    { href: "/navmenu2", title: "Hvordan fungerer det" },
+    { href: "/home", title: "Hjem" },
+    { href: "/infosenter", title: "Infosenter" },
+    { href: "/hvordan-fugerer-det", title: "Hvordan fungerer det" },
 ];
 
 export default headerNavLinks;

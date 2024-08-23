@@ -3,8 +3,8 @@ import { Inter, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700", "900"],

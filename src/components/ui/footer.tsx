@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Button } from "./button";
+import { Input } from "./input";
 
 const Footer = () => {
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
             <span>Det enkleste måten</span> <br />{" "}
             <span className="text-[#FF003D]">å selge bilen på</span>
           </h1>
-          <div className="flex gap-x-4">
+          <div className="flex gap-x-4 font-roboto">
             <Input
               type="text"
               placeholder="Bilens regnr."
