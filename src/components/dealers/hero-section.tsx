@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col min-h-screen justify-center relative bg-gradient-to-r from-[#F8FCFF] to-[#DBF4FF]">
+    <section className="flex flex-col min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]">
       <div className="container mx-auto flex justify-center gap-x-20">
         <div className="basis-[45%]">
           <div className="p-2 text-[40px] leading-10">
@@ -35,7 +35,27 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="relative basis-[55%]">
-          <div className="bg-[#999999] absolute h-[400px] w-[400px] rounded-full left-40  bottom-36" />
+          <div className="bg-[#999999] absolute h-[400px] w-[400px] rounded-full left-40  bottom-36 opacity-10" />
+          <div className="relative ml-60">
+            <Button
+              className="bg-[#C51E46] rounded-xl absolute -top-20 -left-6"
+              
+            >
+              Bud 5: 120 000 kr{" "}
+            </Button>
+            <Button
+              className="bg-[#C51E46] rounded-xl absolute -top-6 left-28"
+              
+            >
+              Bud 5: 120 000 kr{" "}
+            </Button>
+            <Button
+              className="bg-[#C51E46] rounded-xl absolute top-6 -left-3"
+              
+            >
+              Bud 5: 120 000 kr{" "}
+            </Button>
+          </div>
           <Image
             src={"/cars.png"}
             alt="CarImage"

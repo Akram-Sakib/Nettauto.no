@@ -1,10 +1,10 @@
 "use client";
 
-import headerNavLinks from "@/data/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MenuButton from "./menu-button";
+import { headerNavLinks } from "@/data/constants";
 
 function useIsScrollTop() {
   const [isTop, setIsTop] = useState(true);
@@ -45,7 +45,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`w-full sticky z-30 top-0 flex items-center justify-between py-6 border-b border-[#E3E3E3] bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg firefox:bg-opacity-100 bg-gradient-to-r from-[#F8FCFF] to-[#DBF4FF]`}
+        className={`w-full sticky z-30 top-0 flex items-center justify-between py-6 border-b border-[#E3E3E3] bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg firefox:bg-opacity-100 bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]`}
       >
         <nav className="flex items-center justify-between w-full px-4 mx-auto sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
           <div>

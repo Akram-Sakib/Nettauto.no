@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col min-h-screen justify-center relative bg-gradient-to-r from-[#F8FCFF] to-[#DBF4FF]">
+    <section className="flex flex-col min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]">
       <div className="px-40 flex justify-center gap-x-20">
         <div className="basis-[45%]">
           <div className="p-2 text-[40px] leading-[64px]">

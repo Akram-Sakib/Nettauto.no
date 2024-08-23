@@ -60,11 +60,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${inter.variable} ${neulis.className} dark:bg-[#0d1224] dark:text-[rgb(var(--foreground-rgb))] bg-white antialiased text-black`}
       >
-        <Navbar />
-        <main className="min-h-screen relative mx-auto text-white">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

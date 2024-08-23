@@ -1,14 +1,20 @@
-import React from "react";
-import Container from "../ui/container";
 import Image from "next/image";
+import Container from "../ui/container";
 import Process from "./process";
 
 const CountAchievement = () => {
   return (
     <section className="py-20">
       <Container>
-        <div className="max-w-7xl rounded-tl-3xl rounded-br-3xl bg-[#06063E] relative px-20 flex justify-around">
-          <div className="text-white space-y-2 py-10 text-center">
+        <div className="max-w-7xl rounded-tl-3xl rounded-br-3xl bg-[#06063E] relative px-20 flex justify-between">
+          <div className="text-white space-y-2 py-10 text-center relative">
+            <Image
+              src={"/Layer 2.png"}
+              alt="Car"
+              width={176}
+              height={115}
+              className="absolute bottom-36 right-6"
+            />
             <h3 className="text-[40px]">5000 +</h3>
             <p className="text-2xl">Biler solgt</p>
           </div>
