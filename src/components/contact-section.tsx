@@ -5,14 +5,14 @@ const ContactSection = () => {
     <section className="py-20">
       <div className="container mx-auto">
         <div className="text-center text-[#06063E]">
-          <h1 className="text-2xl mb-2">
+          <h1 className="text-2xl mb-2 font-semibold">
             Ønsker du at vi tar kontakt med deg?
           </h1>
-          <p className="text-sm">
+          <p className="text-sm font-roboto">
             Fyll inn skjema, så tar en av våre rådgivere kontakt med deg snart.
           </p>
         </div>
-        <div className="bg-slate-100 rounded-lg p-8 mt-10 max-w-[90%] mx-auto space-y-6 text-black">
+        <div className="bg-slate-100 rounded-lg p-8 mt-10 max-w-[90%] mx-auto space-y-6 text-black font-roboto">
           <div className="flex gap-x-5">
             <div className="basis-[25%]">
               <label htmlFor="" className="text-xl text-black block">
@@ -86,7 +86,7 @@ const ContactSection = () => {
             </div>
           </div>
           <div className="flex justify-center mt-10">
-            <button className="rounded-full px-40 py-3 bg-[#FF003D] text-white mx-auto">
+            <button className="rounded-full px-40 py-3 bg-[#FF003D] text-white mx-auto font-neulis">
               Kontakt meg
             </button>
           </div>

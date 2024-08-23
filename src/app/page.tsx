@@ -10,6 +10,13 @@ export default function Home() {
       <main className="">
         <HeroSection />
         <Products />
+        <div
+          className="relative z-10 w-full h-64"
+          style={{
+            background: "url('/home-bg-mobile.png') no-repeat",
+            backgroundPositionY: "-200%",
+          }}
+        />
         <Features />
         <ContactSection />
         <IntroSection />

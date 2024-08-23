@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        neulis: ['var(--font-neulis)'],
+        roboto: ['var(--font-roboto)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

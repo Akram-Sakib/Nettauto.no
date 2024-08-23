@@ -5,7 +5,7 @@ import Product from "./product";
 const Products = () => {
   return (
     <section className="text-black">
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto pt-10">
         <h1 className="text-4xl text-center mb-11">
           Eksempler på <span className="text-[#FF003D]">auksjoner</span>
         </h1>

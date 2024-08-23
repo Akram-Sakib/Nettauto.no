@@ -23,7 +23,7 @@ const Footer = () => {
           />
         </div>
         <div>
-          <h1 className="text-3xl text-center mb-10">
+          <h1 className="text-3xl text-center mb-10 leading-10">
             <span>Det enkleste måten</span> <br />{" "}
             <span className="text-[#FF003D]">å selge bilen på</span>
           </h1>
@@ -39,20 +39,20 @@ const Footer = () => {
               className="bg-white border-[#EBEBEB] border-2 rounded py-6 text-[#717171] text-base"
             />
           </div>
-          <Button className="text-base bg-[#FF003D] px-60 py-8 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-10">
+          <Button className="text-base bg-[#FF003D] px-60 py-8 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
             KOM I GANG
           </Button>
         </div>
         <div className="text-center space-y-20">
-          <div>
+          <div className="space-y-5">
             <h3 className="text-4xl">Kontakt</h3>
             <p className="text-lg">Kontakt oss</p>
           </div>
-          <div className="text-lg">
+          <div className="text-lg font-roboto font-light space-y-5">
             <p>support@nettauto.no</p>
             <p>+47 00000000</p>
           </div>
-          <div className="text-xl font-semibold">
+          <div className="text-xl font-semibold space-y-5">
             <h3>Ring oss Man- Fre</h3>
             <h3>kl. 09.00 - 18.00</h3>
           </div>
@@ -77,7 +77,7 @@ const Footer = () => {
             key={link.title}
             title={link.title}
             href={link.href}
-            className={`font-medium text-white hover:text-[#E50000] text-lg`}
+            className={`font-medium font-roboto text-white hover:text-[#E50000] text-lg`}
           >
             {link.title}
           </Link>

@@ -20,11 +20,11 @@ const IntroSection = () => {
           <p className="text-[#06063E] text-center font-semibold text-2xl mt-4 mb-8">
             Kontakt oss
           </p>
-          <p className="text-[#292929] text-base text-center">
+          <p className="text-[#292929] text-base text-center font-roboto">
             Våre eksperter hjelper deg mer enn gjerne med spørsmål angående
             bilsalg og andre forhold angående våre tjenester.
           </p>
-          <div className="text-black mt-32 text-center space-y-1">
+          <div className="text-black mt-32 text-center space-y-1 font-roboto">
             <p>Du når oss på telefon på hverdager mellom</p>
             <p>09.00 og 18.00</p>
             <p>Telefon: +47 0000000</p>
