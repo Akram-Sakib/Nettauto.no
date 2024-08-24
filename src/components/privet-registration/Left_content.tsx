@@ -1,5 +1,5 @@
 import React from "react";
-
+import { AiFillCheckCircle } from "react-icons/ai";
 const Left_content = () => {
   return (
     <div className="w-1/2">
@@ -97,28 +97,49 @@ const Left_content = () => {
           />
         </div>
       </div>
-      {/* validetion  */}
-      <div className=" text-black ml-6 m-2">
-        <h2 className=" mt-4">
-          <span>1</span>Minst 12 tegn
-        </h2>
-        <h2 className=" mt-4">
-          <span></span>Middels eller sterkt passord
-        </h2>
-        <h2 className=" mt-4">
-          {" "}
-          <span></span>Minst 1 liten bokstav
-        </h2>
-        <h2 className=" mt-4">
-          {" "}
-          <span></span>Minst 1 stor bokstav
-        </h2>
-        <h2 className=" mt-4">
-          {" "}
-          <span></span>Minst 1 tall
-        </h2>
+      {/* >>>>>>>>>> */}
+      <div>
+        <div>
+          
+        </div>
+        {/* validetion  */}
+        <div className=" text-black ml-6 m-2">
+          <div className="mt-4 flex items-center gap-1">
+            <span>
+              <AiFillCheckCircle className=" text-gray-400" />
+            </span>
+            Minst 12 tegn
+          </div>
+          <div className="mt-4 flex items-center gap-1">
+            <span>
+              <AiFillCheckCircle className=" text-gray-400" />
+            </span>
+            Middels eller sterkt passord
+          </div>
+          <div className="mt-4 flex items-center gap-1">
+            {" "}
+            <span>
+              <AiFillCheckCircle className=" text-gray-400" />
+            </span>
+            Minst 1 liten bokstav
+          </div>
+          <div className="mt-4 flex items-center gap-1">
+            {" "}
+            <span>
+              <AiFillCheckCircle className=" text-gray-400" />
+            </span>
+            Minst 1 stor bokstav
+          </div>
+          <div className="mt-4 flex items-center gap-1">
+            {" "}
+            <span>
+              <AiFillCheckCircle className=" text-gray-400" />
+            </span>
+            Minst 1 tall
+          </div>
 
-        {/* <h2> <span></span>Minst 1 symbol (`!“#$%&‘()*+,-./:;<=>?@[]^_`{|}~`)</h2> */}
+          {/* <h2> <span></span>Minst 1 symbol (`!“#$%&‘()*+,-./:;<=>?@[]^_`{|}~`)</h2> */}
+        </div>
       </div>
     </div>
   );
