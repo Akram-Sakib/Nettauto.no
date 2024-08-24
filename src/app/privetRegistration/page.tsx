@@ -5,7 +5,7 @@ import React from "react";
 const PrivetRegistration = () => {
   return (
     <div className="my-10">
-      <div className="flex justify-between min-h-screen mx-12">
+      <div className="flex justify-between min-h-screen mx-12 gap-[62px]">
         <Left_content />
         <Right_content />
       </div>

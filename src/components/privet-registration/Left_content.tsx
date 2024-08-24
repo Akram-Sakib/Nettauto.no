@@ -1,9 +1,14 @@
 import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { Checkbox } from "../ui/checkbox";
+import { Button } from "../ui/button";
+import Image from "next/image";
 const Left_content = () => {
   return (
-    <div className="w-1/2">
-      <div>image</div>
+    <div className="w-[40%]">
+      <div className=" flex justify-center items-center mb-10">
+        <Image src={"/logo.png"} alt="Anne" width={300} height={57.47} />
+      </div>
       <div className="flex gap-x-9">
         <div className="basis-[60%]">
           <label htmlFor="" className="text-xl text-black block">
@@ -98,10 +103,7 @@ const Left_content = () => {
         </div>
       </div>
       {/* >>>>>>>>>> */}
-      <div>
-        <div>
-          
-        </div>
+      <div className="">
         {/* validetion  */}
         <div className=" text-black ml-6 m-2">
           <div className="mt-4 flex items-center gap-1">
@@ -139,6 +141,21 @@ const Left_content = () => {
           </div>
 
           {/* <h2> <span></span>Minst 1 symbol (`!“#$%&‘()*+,-./:;<=>?@[]^_`{|}~`)</h2> */}
+        </div>
+        <div className="mt-[9px]">
+          <div className="flex items-center space-x-2">
+            <Checkbox id="terms" />
+            <label
+              htmlFor="terms"
+              className="text-sm text-[#717171] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Ved å registrere deg aksepterer du
+              våre brukerbetingelser og personvernpolicy
+            </label>
+          </div>
+          <Button className="text-base bg-[#FF003D] w-[465px] py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
+            Registrer meg
+          </Button>
         </div>
       </div>
     </div>

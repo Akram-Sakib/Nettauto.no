@@ -1,9 +1,16 @@
+import Image from "next/image";
 import React from "react";
 
 const Right_content = () => {
   return (
-    <div>
-      <h1 className="text-center text-5xl text-black"> img side</h1>
+    <div className="max-h-min">
+      <Image
+        className=""
+        src={"/Group 127.png"}
+        width={946}
+        height={1162}
+        alt="Toyota Car"
+      />
     </div>
   );
 };
