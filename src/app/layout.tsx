@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${inter.variable} ${neulis.className} dark:bg-[#0d1224] dark:text-[rgb(var(--foreground-rgb))] bg-white antialiased text-black`}
+        className={`${roboto.variable} ${inter.variable} ${neulis.variable} dark:bg-[#0d1224] dark:text-[rgb(var(--foreground-rgb))] bg-white antialiased text-black`}
       >
         {children}
       </body>

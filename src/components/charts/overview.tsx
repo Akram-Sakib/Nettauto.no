@@ -4,52 +4,32 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 const data = [
   {
-    name: "Jan",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Monday",
+    total: 10,
   },
   {
-    name: "Feb",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Tuesday",
+    total: 20,
   },
   {
-    name: "Mar",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Wednesday",
+    total: 30,
   },
   {
-    name: "Apr",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Thursday",
+    total: 40,
   },
   {
-    name: "May",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Friday",
+    total: 50,
   },
   {
-    name: "Jun",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Saturday",
+    total: 60,
   },
   {
-    name: "Jul",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Aug",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Sep",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Oct",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Nov",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Dec",
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: "Sunday",
+    total: 70,
   },
 ];
 
@@ -63,15 +43,21 @@ export function Overview() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
+          tickMargin={10}
         />
         <YAxis
           stroke="#888888"
           fontSize={12}
           tickLine={false}
-          axisLine={false}
-          tickFormatter={(value) => `$${value}`}
+          axisLine={true}
+          tickFormatter={(value) => `${value}`}
         />
-        <Bar dataKey="total" fill="#000000" radius={[4, 4, 0, 0]} />
+        <Bar
+          dataKey="total"
+          fill="rgb(255, 0, 61)"
+          radius={[4, 4, 0, 0]}
+          barSize={15}
+        />
       </BarChart>
     </ResponsiveContainer>
   );

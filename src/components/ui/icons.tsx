@@ -39,10 +39,12 @@ import {
   Newspaper,
   KanbanSquare,
 } from "lucide-react";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  outlineDot: HiOutlineDotsHorizontal,
   dashboard: LayoutDashboardIcon,
   logo: Command,
   login: LogIn,
