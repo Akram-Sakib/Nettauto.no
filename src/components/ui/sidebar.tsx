@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { navItems } from "@/data/constants";
 import { DashboardNav } from "./dashboard-nav";
 import Image from "next/image";
+import { DashboardCard } from "./dashboard-card";
 
 // import { Playlist } from "../data/playlists";
 
@@ -26,7 +27,9 @@ export default async function Sidebar({ className }: SidebarProps) {
           <div className="space-y-1 mt-12">
             <DashboardNav items={navItems} />
           </div>
-
+          <div className="flex justify-center">
+            <DashboardCard />
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import FilterAds from "@/components/advertisement-page/filter";
 import CarAuction from "@/components/end-of-auctions/car-auction";
-import Product from "@/components/homepage/product";
 import { InputButton } from "@/components/ui/input-button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Search } from "lucide-react";

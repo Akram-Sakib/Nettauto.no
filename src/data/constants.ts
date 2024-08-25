@@ -37,4 +37,21 @@ export const navItems: NavItem[] = [
         href: "/dashboard/admin-list",
         label: "Admin List",
     },
+    // seller
+    {
+        title: "Mine auksjoner",
+        href: "/dashboard/my-auctions",
+        label: "My auctions",
+    },
+    {
+        title: "Solgte biler",
+        href: "/dashboard/sold-cars",
+        label: "Sold cars",
+    },
+    {
+        title: "Varsler",
+        href: "/dashboard/alerts",
+        label: "Alerts",
+    },
+
 ]
