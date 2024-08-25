@@ -27,4 +27,14 @@ export const navItems: NavItem[] = [
         href: "/dashboard/advertisements",
         label: "Advertisements",
     },
+    {
+        title: "Endt auksjoner",
+        href: "/dashboard/end-of-auctions",
+        label: "End Of Auctions",
+    },
+    {
+        title: "Admin liste",
+        href: "/dashboard/admin-list",
+        label: "Admin List",
+    },
 ]
