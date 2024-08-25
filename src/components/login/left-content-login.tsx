@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 
-const Left_ContentLogin = () => {
+const LeftContentLogin = () => {
   return (
     <div className=" w-1/2">
       <div className="mt-[28px] ml-[133px] flex justify-center items-center mb-10">
@@ -93,4 +93,4 @@ const Left_ContentLogin = () => {
   );
 };
 
-export default Left_ContentLogin;
+export default LeftContentLogin;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 
-const Right_content = () => {
+const RightContent = () => {
   return (
     <div className="h-full w-1/2 flex items-center justify-center bg-[#06063E]">
       <div className="text-center">
@@ -24,4 +24,4 @@ const Right_content = () => {
   );
 };
 
-export default Right_content;
+export default RightContent;

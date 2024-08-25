@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Right_ContentLogin = () => {
+const RightContentLogin = () => {
   return (
     <div className="  bg-[#06063E] w-1/2 ">
       <div className="flex justify-end items-end">
@@ -17,4 +17,4 @@ const Right_ContentLogin = () => {
   );
 };
 
-export default Right_ContentLogin;
+export default RightContentLogin;

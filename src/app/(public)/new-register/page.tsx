@@ -1,5 +1,5 @@
-import Left_Content from "@/components/newRegister/Left_Content";
-import Right_content from "@/components/newRegister/Right_Content";
+import LeftContent from "@/components/new-register/left-content";
+import RightContent from "@/components/new-register/right-content";
 import Image from "next/image";
 
 const newRegister = () => {
@@ -13,8 +13,8 @@ const newRegister = () => {
         height={57.47}
       />
       <div className="flex justify-between w-full h-full relative">
-        <Left_Content />
-        <Right_content />
+        <LeftContent />
+        <RightContent />
       </div>
       <div className=" absolute top-[1050px] left-[250px]">
         <p className=" text-black  text-center font-roboto text-[50px]">

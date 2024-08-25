@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 
-const Left_Content = () => {
+const LeftContent = () => {
   return (
     <div className="h-full w-1/2 flex items-center justify-center">
       <div className="text-center">
@@ -24,4 +24,4 @@ const Left_Content = () => {
   );
 };
 
-export default Left_Content;
+export default LeftContent;
