@@ -2,23 +2,16 @@
 
 import { z } from "zod";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import FormInput from "@/components/form-elements/form-input";
 import FormSelect from "@/components/form-elements/form-select";
+import FormTextArea from "@/components/form-elements/form-textarea";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Form } from "@/components/ui/form";
+import { Label } from "@/components/ui/label";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   carRegNo: z.string().min(2, {
@@ -53,7 +46,7 @@ const NewAuction = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="flex gap-x-8">
+            <div className="flex gap-x-8 [&>*>*>label]:text-lg">
               <div className="basis-[25%]">
                 <FormInput
                   name="carRegNo"
@@ -86,7 +79,7 @@ const NewAuction = () => {
                 <span className="text-primaryred"> Last opp</span>
               </AlertDescription>
             </Alert>
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid grid-cols-4 gap-8 [&>*>*>label]:text-lg">
               <div className="">
                 <FormInput
                   name="marke"
@@ -154,7 +147,7 @@ const NewAuction = () => {
                 />
               </div>
               <div className=""></div>
-              <div className="">
+              <div className="[&>*>label]:text-lg">
                 <FormSelect
                   name="driftstype"
                   label="Driftstype"
@@ -163,15 +156,15 @@ const NewAuction = () => {
                   options={[{ label: "Option 1", value: "Option Value" }]}
                 />
               </div>
-              <div className="">
+              <div className="[&>*>label]:text-lg">
                 <FormInput
                   name="effect"
                   label="Effekt"
-                  placeholder=" 330 hk"
+                  placeholder="330 hk"
                   className="border-[#EBEBEB] py-6"
                 />
               </div>
-              <div className="">
+              <div className="[&>*>label]:text-lg">
                 <FormSelect
                   name="minimumpris"
                   label="Minimum pris"
@@ -179,6 +172,78 @@ const NewAuction = () => {
                   className="border-[#EBEBEB]"
                   options={[{ label: "Option 1", value: "Option Value" }]}
                 />
+              </div>
+            </div>
+            <div className="[&>*>label]:text-lg">
+              <FormTextArea
+                name="description"
+                label="Beskrivelse - tilstand og egenerklæring"
+                placeholder="Legg inn"
+              />
+            </div>
+            <div>
+              <Label className="text-lg font-bold mb-5 block">Utstyr</Label>
+              <div className="grid grid-cols-4 gap-y-5 text-[#717171]">
+                <div className="space-y-4">
+                  <p>Auxiliary heating</p>
+                  <p>Bluetooth</p>
+                  <p>CD player</p>
+                  <p>Central locking</p>
+                </div>
+                <div className="space-y-4">
+                  <p>Auxiliary heating</p>
+                  <p>Bluetooth</p>
+                  <p>CD player</p>
+                  <p>Central locking</p>
+                </div>
+                <div className="space-y-4">
+                  <p>Auxiliary heating</p>
+                  <p>Bluetooth</p>
+                  <p>CD player</p>
+                  <p>Central locking</p>
+                </div>
+                <div className="space-y-4">
+                  <p>Auxiliary heating</p>
+                  <p>Bluetooth</p>
+                  <p>CD player</p>
+                  <p>Central locking</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label className="text-lg">Dokumenter</Label>
+              <Alert className="bg-[#E8F9FF] px-10 border-none py-6">
+                <AlertDescription className="text-lg text-black text-center">
+                  Last opp dokumenter
+                  <span className="text-primaryred">(PDF)</span>
+                </AlertDescription>
+              </Alert>
+            </div>
+            <div className="space-y-4">
+              <Label className="text-lg text-navyblue block">
+                Velg auksjonstid
+              </Label>
+              <div className="flex gap-x-5 pl-52">
+                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
+                  24 timer
+                </Button>
+                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
+                  3 dager
+                </Button>
+                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
+                  5 dager
+                </Button>
+                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
+                  10 dager
+                </Button>
+              </div>
+              <div className="flex justify-center gap-x-5 !mt-10">
+                <Button className="text-xl font-medium hover:bg-[#008B65] bg-primaryred h-auto px-20 rounded-sm py-4">
+                  SEND FOR GODKJENNING
+                </Button>
+                <Button className="text-xl font-medium hover:bg-[#008B65] bg-[#0B5F7C] h-auto px-20 rounded-sm py-4">
+                  Lagre som utkast
+                </Button>
               </div>
             </div>
           </form>

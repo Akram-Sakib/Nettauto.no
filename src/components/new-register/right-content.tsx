@@ -3,13 +3,13 @@ import { Button } from "../ui/button";
 
 const RightContent = () => {
   return (
-    <div className="h-full w-1/2 flex items-center justify-center bg-[#06063E]">
+    <div className="h-full basis-1/2 flex items-center justify-center bg-[#06063E] drop-shadow-sm text-white">
       <div className="text-center">
-        <h1 className="  text-[50px] font-roboto">Bedrift</h1>
-        <p className=" font-roboto my-[47px]">
+        <h1 className="text-5xl font-bold font-roboto">Bedrift</h1>
+        <p className="font-roboto font-bold my-12">
           Vi gjør kjøp og salg enkelt for din bedrift
         </p>
-        <ul className=" font-roboto mb-[52px]">
+        <ul className="font-roboto my-12 disc">
           <li>Egen auksjonsrådgiver.</li>
           <li>Åpen budlogg og dokumentert salg</li>
           <li>Annonsering FINN.no inkludert</li>

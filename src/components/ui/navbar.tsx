@@ -71,12 +71,18 @@ export default function Navbar() {
           </div>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block sm:space-x-8 text-white">
-              <button className="w-[149px] h-[46px] rounded bg-[#06063E]">
+              <Link
+                href="/login"
+                className="px-8 py-3 rounded bg-[#06063E]"
+              >
                 Logg inn
-              </button>
-              <button className="w-[149px] h-[46px] rounded bg-[#FF003D]">
+              </Link>
+              <Link
+                href="/register"
+                className="px-8 py-3 rounded bg-[#FF003D]"
+              >
                 Registerer deg
-              </button>
+              </Link>
             </div>
           </div>
         </nav>

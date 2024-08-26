@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-const Right_content = () => {
+const PrivateRegistrationImage = () => {
   return (
-    <div className="max-h-min">
+    <div className="max-h-min basis-1/2">
       <Image
         className=""
         src={"/Group 127.png"}
@@ -15,4 +15,4 @@ const Right_content = () => {
   );
 };
 
-export default Right_content;
+export default PrivateRegistrationImage;

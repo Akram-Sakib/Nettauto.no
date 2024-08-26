@@ -1,14 +1,11 @@
-import LeftContent from "@/components/private-registration/left-content";
-import RightContent from "@/components/private-registration/right-content";
-import React from "react";
+import PrivateRegistrationForm from "@/components/private-registration/private-registration-form";
+import PrivateRegistrationImage from "@/components/private-registration/private-registration-image";
 
 const PrivetRegistration = () => {
   return (
-    <div className="my-10">
-      <div className="flex justify-between min-h-screen mx-12 gap-[62px]">
-        <LeftContent />
-        <RightContent />
-      </div>
+    <div className="flex justify-between min-h-screen">
+      <PrivateRegistrationForm />
+      <PrivateRegistrationImage />
     </div>
   );
 };

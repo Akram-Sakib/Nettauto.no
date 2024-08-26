@@ -3,14 +3,14 @@ import React from "react";
 
 const RightContentLogin = () => {
   return (
-    <div className="  bg-[#06063E] w-1/2 ">
-      <div className="flex justify-end items-end">
+    <div className="bg-[#06063E] w-1/2">
+      <div className="flex justify-end items-end relative h-full">
         <Image
-          className=" w-[70%] mt-[385px] opacity-[45%]"
+          className=""
           src={"/login.png"}
-          width={800}
-          height={800}
           alt="Toyota Car"
+          width={720}
+          height={532}
         />
       </div>
     </div>
