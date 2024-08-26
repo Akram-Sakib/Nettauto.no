@@ -1,39 +1,58 @@
 import Image from "next/image";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const HeroSection = () => {
   return (
     <section className="flex flex-col min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]">
-      <div className="px-40 flex justify-center gap-x-20">
+      <div className="container mx-auto flex justify-center gap-x-20">
         <div className="basis-[45%]">
-          <div className="p-2 text-[40px] leading-[64px]">
-            <h1 className="text-black">SELG KOSTNADSFRITT HOS OSS</h1>
-            <h1 className="text-[#FF003D]">Selg raskt, trygt og enkelt.</h1>
+          <div className="p-2 text-[40px] leading-10">
+            <h1 className="text-black font-semibold mb-10">
+              Enkel bilsalg <br />
+              <span className="text-[#FF003D]">med Nettauto.no</span>
+            </h1>
+            <p className="text-lg text-[#292929] font-roboto max-w-md">
+              Få kontakt med over 500 + kjøpere, og selg din bil på 24 timer!
+            </p>
           </div>
-          <button className="w-[149px] h-[46px] rounded bg-[#FF003D] mt-[53px] ml-[101px]">
-            Registerer deg
-          </button>
+          <div className="text-center mt-20">
+            <div className="flex gap-x-4 font-roboto mt-10">
+              <Input
+                type="text"
+                placeholder="Bilens regnr."
+                className="bg-white border-[#EBEBEB] border-2 rounded py-6 text-[#717171] text-base"
+              />
+              <Input
+                type="text"
+                placeholder="Kilometer"
+                className="bg-white border-[#EBEBEB] border-2 rounded py-6 text-[#717171] text-base"
+              />
+            </div>
+            <Button className="text-base bg-[#FF003D] px-60 py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
+              KOM I GANG
+            </Button>
+          </div>
         </div>
         <div className="relative basis-[55%]">
+          <div className="bg-[#999999] absolute h-[400px] w-[400px] rounded-full left-40  bottom-36 opacity-10" />
+          <div className="relative ml-60">
+            <Button className="bg-[#C51E46] rounded-xl absolute -top-20 -left-6">
+              Bud 5: 120 000 kr{" "}
+            </Button>
+            <Button className="bg-[#C51E46] rounded-xl absolute -top-6 left-28">
+              Bud 5: 120 000 kr{" "}
+            </Button>
+            <Button className="bg-[#C51E46] rounded-xl absolute top-6 -left-3">
+              Bud 5: 120 000 kr{" "}
+            </Button>
+          </div>
           <Image
-            src={"/image3.png"}
+            src={"/cars.png"}
             alt="CarImage"
-            width={373}
-            height={417}
-            className="absolute top-[-300px] left-[0px] z-10"
-          />
-          <Image
-            src={"/image.png"}
-            alt="CarImage"
-            width={373}
-            height={417}
-            className="absolute top-[-30px] left-[200px] z-20"
-          />
-          <Image
-            src={"/image2.png"}
-            alt="CarImage"
-            width={373}
-            height={417}
-            className="absolute top-[-150px] left-[540px] z-10"
+            width={796}
+            height={266}
+            className="absolute z-10 top-[20%]"
           />
         </div>
       </div>

@@ -11,7 +11,7 @@ const Footer = () => {
         style={{
           clipPath: "polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)",
         }}
-      ></div>
+      />
       <div className="container mx-auto flex justify-between pt-60 pb-20 gap-x-10">
         <div>
           <Image

@@ -1,7 +1,7 @@
-import ContactUs from "@/components/dealers/contact-us";
-import CountAchievementSection from "@/components/dealers/count-achievement-section";
-import HeroSection from "@/components/dealers/hero-section";
-import ProductSliders from "@/components/homepage/product-sliders";
+import ContactUs from "@/components/homepage/contact-us";
+import CountAchievementSection from "@/components/homepage/count-achievement-section";
+import HeroSection from "@/components/homepage/hero-section";
+import ProductSliders from "@/components/dealers/product-sliders";
 import React from "react";
 
 const InfoSenter = () => {

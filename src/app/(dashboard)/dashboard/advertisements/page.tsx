@@ -1,7 +1,7 @@
 "use client";
 
 import FilterAds from "@/components/advertisement-page/filter";
-import Product from "@/components/homepage/product";
+import Product from "@/components/dealers/product";
 import { InputButton } from "@/components/ui/input-button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Search } from "lucide-react";

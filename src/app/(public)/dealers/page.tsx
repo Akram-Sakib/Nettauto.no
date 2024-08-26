@@ -1,8 +1,8 @@
-import ContactSection from "@/components/homepage/contact-section";
-import Features from "@/components/homepage/features";
-import HeroSection from "@/components/homepage/hero-section";
-import IntroSection from "@/components/homepage/intro-section";
-import Products from "@/components/homepage/products";
+import ContactSection from "@/components/dealers/contact-section";
+import Features from "@/components/dealers/features";
+import HeroSection from "@/components/dealers/hero-section";
+import IntroSection from "@/components/dealers/intro-section";
+import Products from "@/components/dealers/products";
 
 export default function Home() {
   return (

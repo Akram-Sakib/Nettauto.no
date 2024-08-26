@@ -5,7 +5,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { InputHTMLAttributes } from "react";
 import { useFormContext } from "react-hook-form";
 import { PhoneInput } from "../ui/phone-input";
 
