@@ -3,6 +3,7 @@ import { navItems } from "@/data/constants";
 import { DashboardNav } from "./dashboard-nav";
 import Image from "next/image";
 import { DashboardCard } from "./dashboard-card";
+import Link from "next/link";
 
 // import { Playlist } from "../data/playlists";
 
@@ -16,12 +17,14 @@ export default async function Sidebar({ className }: SidebarProps) {
       <div className="space-y-4 py-4">
         <div className="py-2">
           <div className="px-3">
-            <Image
-              src={"/nettauto-dashboard-logo.png"}
-              alt="Logo"
-              width={280}
-              height={35}
-            />
+            <Link href="/">
+              <Image
+                src={"/nettauto-dashboard-logo.png"}
+                alt="Logo"
+                width={280}
+                height={35}
+              />
+            </Link>
           </div>
 
           <div className="space-y-1 mt-12">

@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import FormInput from "../form-elements/form-input";
 import FormPhoneInput from "../form-elements/form-phone-input";
+import Link from "next/link";
 
 const formSchema = z.object({
   carRegNo: z.string().min(2, {
@@ -178,9 +179,11 @@ const PrivateRegistrationForm = () => {
                 våre brukerbetingelser og personvernpolicy
               </label>
             </div>
-            <Button className="text-base bg-[#FF003D] w-[465px] py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
-              Registrer meg
-            </Button>
+            <Link href="/private-registration">
+              <Button className="text-base bg-[#FF003D] w-[465px] py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
+                Registrer meg
+              </Button>
+            </Link>
           </div>
         </div>
       </form>

@@ -29,9 +29,12 @@ const LeftContent = () => {
             <li>Trygg betalingsløsning</li>
             <li>Slipp pruting og mas</li>
           </ul>
-          <Button className="text-base font-roboto bg-[#FF003D] w-[465px] py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
-            Registrer deg som privat person
-          </Button>
+
+          <Link href="/private-registration">
+            <Button className="text-base font-roboto bg-[#FF003D] w-[465px] py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
+              Registrer deg som privat person
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

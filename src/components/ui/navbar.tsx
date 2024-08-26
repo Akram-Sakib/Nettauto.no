@@ -78,7 +78,7 @@ export default function Navbar() {
                 Logg inn
               </Link>
               <Link
-                href="/register"
+                href="/new-register"
                 className="px-8 py-3 rounded bg-[#FF003D]"
               >
                 Registerer deg
