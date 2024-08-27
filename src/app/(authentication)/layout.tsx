@@ -1,6 +1,5 @@
-import Sidebar from "@/components/ui/sidebar";
-import React from "react";
 import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Nettauto | Dashboard",
@@ -9,10 +8,8 @@ export const metadata: Metadata = {
 const AdminDashboardPage = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="flex h-screen overflow-hidden font-roboto bg-[#E9E9E9]">
-        <main className="flex-1 overflow-x-hidden overflow-y-auto">
-          {children}
-        </main>
+      <div className="flex font-roboto bg-[#E9E9E9]">
+        <main className="flex-1">{children}</main>
       </div>
     </>
   );

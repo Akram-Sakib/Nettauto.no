@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import QuilTextEditor from "../../../../components/text-editor/quil-text-editor";
 
 const AdminList = () => {
   return (
@@ -135,6 +136,16 @@ const AdminList = () => {
                 Add more/Remove
               </Button>
             </div>
+          </div>
+          {/* Component */}
+          <div>
+            <Label className="text-lg font-bold mb-10 block text-primaryred">
+              Girtype
+            </Label>
+            <QuilTextEditor />
+            <Button className="bg-[#263238] rounded-full font-inter font-normal text-base mt-20 px-10">
+              Save
+            </Button>
           </div>
         </div>
       </div>
