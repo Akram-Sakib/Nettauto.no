@@ -28,6 +28,7 @@ import { Tabs, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const navMenu = [
   {
@@ -123,46 +124,51 @@ export default function DashboardPage() {
                   <Overview />
                 </CardContent>
               </Card>
-              <Card className="basis-[20%] font-inter text-center !pb-0">
-                <CardHeader>
-                  <h1 className="text-xl">Filter By Date</h1>
-                </CardHeader>
-                <CardContent className="px-0 pb-0">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-md"
-                  />
-                </CardContent>
-              </Card>
+              <div>
+                <Card className="basis-[20%] font-inter text-center">
+                  <CardHeader>
+                    <h1 className="text-xl">Filter By Date</h1>
+                  </CardHeader>
+                  <CardContent>
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      className="rounded-md"
+                    />
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </TabsContent>
         </Tabs>
         <div className="flex gap-x-6 justify-end">
           <Card className="bg-white px-4 py-2">
             <CardHeader>
-              <CardDescription className="flex items-center gap-x-10">
+              <div className="flex items-center gap-x-6">
                 <Image
                   src={"/stop-palm-svgrepo-com.svg"}
                   width={48}
                   height={53}
                   alt="Stop-palm"
                 />
-                <p className="text-lg font-roboto text-navyblue max-w-40">
-                  Deactivate functionto post auction
-                </p>
-              </CardDescription>
+                <div className="flex items-start gap-x-2">
+                  <Checkbox className="mt-2"/>
+                  <p className="text-lg font-roboto text-navyblue max-w-60">
+                    Deactivate functionto post auction
+                  </p>
+                </div>
+              </div>
             </CardHeader>
             <CardContent>
               <p>Add message that will show up in seller section</p>
             </CardContent>
           </Card>
-          <Card className="bg-white px-4 py-2">
+          <Card className="bg-white px-10 py-2 rounded">
             <CardHeader>
-              <CardDescription className="flex items-center gap-x-10">
+              <div className="flex items-center gap-x-10">
                 <Image
-                  src={"/stop-palm-svgrepo-com.svg"}
+                  src={"/icons 5.png"}
                   width={48}
                   height={53}
                   alt="Stop-palm"
@@ -170,11 +176,12 @@ export default function DashboardPage() {
                 <p className="text-lg font-roboto text-navyblue max-w-40">
                   Ny bruker
                 </p>
-              </CardDescription>
+              </div>
             </CardHeader>
             <CardContent>
-              <Button variant={"outline"}>
-                Lagg ny bruker <CiCirclePlus className="mr-2 h-4 w-4" />
+              <Button variant={"outline"} className="space-x-4">
+                <span>Lagg ny bruker</span>{" "}
+                <CiCirclePlus className="mr-2 h-6 w-6" />
               </Button>
             </CardContent>
           </Card>

@@ -1,6 +1,13 @@
 "use client";
 
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 const data = [
   {
@@ -37,6 +44,7 @@ export function Overview() {
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={data}>
+        <CartesianGrid vertical={false} />
         <XAxis
           dataKey="name"
           stroke="#888888"
@@ -51,6 +59,7 @@ export function Overview() {
           tickLine={false}
           axisLine={true}
           tickFormatter={(value) => `${value}`}
+          className=""
         />
         <Bar
           dataKey="total"

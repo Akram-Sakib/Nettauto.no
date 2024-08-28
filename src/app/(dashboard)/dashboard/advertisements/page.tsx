@@ -22,11 +22,11 @@ const Advertisements = () => {
               <span className="font-bold">Søk etter:</span>{" "}
               <span>Reg nr/ Auksjon ID eller Rådgiver</span>
             </h4>
-            <div className="basis-[50%]">
+            <div className="basis-[50%] [&>div>div>svg]:text-white [&>div>div]:bg-primaryred [&>div>div]:h-full [&>div>div]:w-[20%] [&>div>div]:right-0 [&>div>div]:flex [&>div>div]:items-center [&>div>div]:justify-center [&>div>div]:rounded-tr-3xl [&>div>div]:rounded-br-3xl [&>div>div]:rounded-tl-xl [&>div>div]:rounded-bl-xl">
               <InputButton
                 endIcon={Search}
                 placeholder=""
-                className="border-[#EEEEEE] border rounded-3xl py-7 px-6 text-black"
+                className="border-[#EEEEEE] border rounded-3xl py-7 px-6 text-black pr-0 focus:border-[#EEEEEE]"
               />
             </div>
           </div>

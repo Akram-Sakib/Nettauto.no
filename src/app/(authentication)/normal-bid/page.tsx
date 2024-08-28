@@ -1,4 +1,4 @@
-import NormalBid from "@/components/normal-bid/NormalBid";
+import NormalBid from "@/components/normal-bid/normal-bid";
 import React from "react";
 
 const page = () => {

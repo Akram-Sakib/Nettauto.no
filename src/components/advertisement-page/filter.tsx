@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
+import Image from "next/image";
 
 const FilterCheckBox = ({ id, label }: { id: string; label: string }) => {
   return (
@@ -39,18 +40,35 @@ const FilterAds = () => {
           label="Show only not approved ads"
         />
         <FilterCheckBox id="waiting-ads" label="Show only waiting ads" />
-        <div className="">
+        <div className="pl-6">
           <Popover>
             <PopoverTrigger asChild>
               <Button
                 variant={"outline"}
                 className={cn(
-                  "w-[240px] justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
+                  "min-w-[400px] justify-between text-left font-normal",
+                  !date && "text-muted-foreground",
+                  "py-6"
                 )}
               >
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
+                <div>
+                  {date ? (
+                    <span className="text-primaryred font-medium text-xl">
+                      {format(date, "PPP")}
+                    </span>
+                  ) : (
+                    <span className="text-xl">
+                      Periode:
+                    </span>
+                  )}
+                </div>
+                <Image
+                  src={"/calender-svgrepo-com.svg"}
+                  width={20}
+                  height={20}
+                  alt="Calendar"
+                  className="mr-2"
+                />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">

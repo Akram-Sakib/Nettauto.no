@@ -75,7 +75,17 @@ const page = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="basis-[20%] pl-5 space-y-8 mt-10"></div>
+        <div className="basis-[20%] pl-5 space-y-8 mt-10">
+          <ul className="bg-[#D9D9D9] text-[#263238] p-6 space-y-8 text-xl rounded-xl max-w-60 mt-10">
+            <li>Aktive budrunder</li>
+            <li>Mine bud</li>
+            <li>Mine kjøp</li>
+            <li>Varsler</li>
+            <li>Innstillinger</li>
+          </ul>
+          <Button className="bg-primaryred inline-block ml-8">Logg ut</Button>
+          <p className="text-xl text-[#06063E] ml-4">Gå til salg</p>
+        </div>
         <div className="basis-[60%]">
           <div className="my-10 flex flex-col items-center">
             <div className="flex items-center gap-x-4">
@@ -198,26 +208,52 @@ const page = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-[#E8E8E8] p-4 rounded-lg space-y-6">
-                  <div className="flex justify-between items-center">
-                    <Label className="text-lg font-bold mb-5 block">
-                      BUDHISTORIKK
-                    </Label>
-                    <span className="text-primaryred">12 Bud</span>
-                  </div>
-                  <Bid />
-                  <Bid />
-                  <Bid />
-                  <Bid />
-                </div>
               </TabsContent>
               <TabsContent value="password"></TabsContent>
               <TabsContent value="dokumenter"></TabsContent>
             </Tabs>
           </div>
         </div>
-        <div className="relative basis-[20%]">
-          <SuperAdminCharts />
+        <div className="relative basis-[20%] space-y-6">
+          <div className="mb-8">
+            <h4 className="font-neulis text-xl text-primaryred mb-3">
+              Avsluttes om
+            </h4>
+            <div className="rounded-md border-2 border-[#EBEBEB] p-2 flex justify-around">
+              {[
+                { title: "3", text: "Dager" },
+                { title: "06", text: "Timer" },
+                { title: "58", text: "Minutter" },
+                { title: "23", text: "Sekunder" },
+              ].map(({ title, text }) => (
+                <div className="text-center">
+                  <h4 className="text-primaryred text-xl font-bold">{title}</h4>
+                  <p className="text-sm text-[#717171]">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex gap-x-4 text-white font-semibold">
+            <Button className="bg-[#FF003D] h-[42px] rounded">
+              Change time manuelly
+            </Button>
+            <Button className="bg-[#FF003D] h-[42px] rounded">
+              CHANGE ADS
+            </Button>
+            <Button className="bg-[#FF003D] h-[42px] rounded">STOP ADS</Button>
+          </div>
+          <div className="bg-[#E8E8E8] p-4 rounded-lg space-y-6">
+            <div className="flex justify-between items-center">
+              <Label className="text-lg font-bold mb-5 block">
+                BUDHISTORIKK
+              </Label>
+              <span className="text-primaryred">12 Bud</span>
+            </div>
+            <Bid />
+            <Bid />
+            <Bid />
+            <Bid />
+          </div>
         </div>
       </div>
     </section>

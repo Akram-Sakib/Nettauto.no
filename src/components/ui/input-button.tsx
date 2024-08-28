@@ -33,7 +33,7 @@ const InputButton = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {EndIcon && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer">
             <EndIcon className="text-[#0B5F7C]" size={30} />
           </div>
         )}

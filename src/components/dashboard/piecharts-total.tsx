@@ -16,6 +16,7 @@ const chartData = [
   { browser: "chrome", visitors: 30, fill: "var(--color-chrome)" },
   { browser: "safari", visitors: 30, fill: "var(--color-safari)" },
 ];
+
 const chartConfig = {
   visitors: {
     label: "Visitors",
