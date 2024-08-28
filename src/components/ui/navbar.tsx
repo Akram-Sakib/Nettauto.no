@@ -48,9 +48,9 @@ export default function Navbar() {
         className={`w-full sticky z-30 top-0 flex items-center justify-between py-6 border-b border-[#E3E3E3] bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg firefox:bg-opacity-100 bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]`}
       >
         <nav className="flex items-center justify-between w-full px-4 mx-auto sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
-          <div>
+          <Link href="/">
             <Image src={"/logo.png"} alt="Logo" width={400} height={57} />
-          </div>
+          </Link>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block sm:space-x-8">
               {/* text-gray-700 dark: */}
@@ -71,10 +71,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block sm:space-x-8 text-white">
-              <Link
-                href="/login"
-                className="px-8 py-3 rounded bg-[#06063E]"
-              >
+              <Link href="/login" className="px-8 py-3 rounded bg-[#06063E]">
                 Logg inn
               </Link>
               <Link

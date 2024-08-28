@@ -65,8 +65,8 @@ const LeftContentLogin = () => {
                     label="Passord"
                     className="bg-white text-black rounded-lg border-2 border-[#EBEBEB] h-auto py-3 w-full"
                   />
-                  <p className="text-end cursor-pointer mt-1 text-[#FF003D] text-xs font-medium">
-                    Glemt passord
+                  <p className="mt-1 text-[#FF003D] text-xs font-medium text-right">
+                    <Link href="/forgot-password">Glemt passord</Link>
                   </p>
                   <Button className="text-base bg-[#FF003D] py-4 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm my-6 block w-full h-auto font-medium">
                     LOGG INN
