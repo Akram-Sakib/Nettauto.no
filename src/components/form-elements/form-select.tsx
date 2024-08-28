@@ -16,8 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
 
 type Option = {
   label: string;
@@ -48,19 +46,19 @@ const FormSelect = ({
   const { control, getValues } = useFormContext();
 
   // const value = getValues(name);
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  // const pathname = usePathname();
+  // const router = useRouter();
+  // const searchParams = useSearchParams();
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
+  // const createQueryString = useCallback(
+  //   (name: string, value: string) => {
+  //     const params = new URLSearchParams(searchParams.toString());
+  //     params.set(name, value);
 
-      return params.toString();
-    },
-    [searchParams]
-  );
+  //     return params.toString();
+  //   },
+  //   [searchParams]
+  // );
 
   return (
     <FormField

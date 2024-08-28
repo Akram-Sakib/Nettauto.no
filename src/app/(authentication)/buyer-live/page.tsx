@@ -226,9 +226,9 @@ const page = () => {
                 { title: "58", text: "Minutter" },
                 { title: "23", text: "Sekunder" },
               ].map(({ title, text }) => (
-                <div className="text-center">
+                <div className="text-center" key={title}>
                   <h4 className="text-primaryred text-xl font-bold">{title}</h4>
-                  <p className="text-sm text-[#717171]">{text}</p>
+                  <p className="text-sm text-[#f09d9d]">{text}</p>
                 </div>
               ))}
             </div>

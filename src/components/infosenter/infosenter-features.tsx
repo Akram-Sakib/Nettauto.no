@@ -1,14 +1,18 @@
-import ContactSection from "../dealers/contact-section";
-import Map from "../map/map";
-import Container from "../ui/container";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import InfoSenterFeature from "./infosenter-feature";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import dynamic from "next/dynamic";
+import ContactSection from "../dealers/contact-section";
+import Container from "../ui/container";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import InfoSenterFeature from "./infosenter-feature";
+
+const Map = dynamic(() => import("../map/map"), {
+  ssr: false,
+});
 
 const accordionData = [
   {
