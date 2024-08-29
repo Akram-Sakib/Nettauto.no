@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <>
       <Navbar />
-      <main className="min-h-screen relative mx-auto text-white">
+      <main className="min-h-screen relative mx-auto text-white font-neulis font-roboto">
         {children}
       </main>
       <Footer />

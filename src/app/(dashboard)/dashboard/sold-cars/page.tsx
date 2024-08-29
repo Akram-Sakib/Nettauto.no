@@ -1,6 +1,6 @@
 "use client";
 
-import ProductSlide from "@/components/dealers/product-slide";
+import ProductSlide from "@/components/homepage/product-slide";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 

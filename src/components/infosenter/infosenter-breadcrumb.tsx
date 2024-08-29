@@ -10,9 +10,9 @@ const InfoSenterBreadCrumb = () => {
           alt="Car"
           width={176}
           height={115}
-          className="-mb-4"
+          className="-mb-4 lg:w-[176px] lg:h-[115px] md:w-[176px] md:h-[115px] w-[90px] h-[60px]"
         />
-        <h1 className="font-medium text-5xl text-black pb-4">
+        <h1 className="font-medium text-2xl md:text-3xl lg:text-5xl text-black pb-4">
           INFO<span className="text-primaryred">SENTER</span>
         </h1>
       </div>

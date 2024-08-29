@@ -7,11 +7,11 @@ import Products from "@/components/dealers/products";
 export default function Home() {
   return (
     <>
-      <main className="">
+      <main className="font-roboto">
         <HeroSection />
         <Products />
         <div
-          className="relative z-10 w-full h-64"
+          className="relative z-10 w-full h-64 hidden lg:block"
           style={{
             background: "url('/home-bg-mobile.png') no-repeat",
             backgroundPositionY: "-200%",

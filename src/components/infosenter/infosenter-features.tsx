@@ -58,7 +58,7 @@ const InfoSenterFeatures = () => {
     <section className="py-32">
       <Container>
         <Tabs defaultValue="location">
-          <TabsList className="grid grid-cols-3 gap-y-32 gap-x-10 border-b-0 mb-20">
+          <TabsList className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-32 gap-x-10 border-b-0 mb-20">
             <TabsTrigger
               value="location"
               className="border-b-0 [&>*]:data-[state=active]:font-normal [&>*]:data-[state=active]:bg-primaryred/20"
@@ -122,7 +122,7 @@ const InfoSenterFeatures = () => {
           </TabsContent>
           <TabsContent
             value="question"
-            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-20 "
+            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-4 md:p-10 lg:p-20 "
           >
             <h3 className="text-center font-bold text-4xl">
               FAQ -{" "}
@@ -143,7 +143,7 @@ const InfoSenterFeatures = () => {
           </TabsContent>
           <TabsContent
             value="sheet"
-            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-20"
+            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-4 md:p-10 lg:p-20"
           >
             <h3 className="text-center font-bold text-4xl">
               Vilkår for nettauksjon
@@ -163,7 +163,7 @@ const InfoSenterFeatures = () => {
           </TabsContent>
           <TabsContent
             value="shield"
-            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-20"
+            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-4 md:p-10 lg:p-20"
           >
             <h3 className="text-center font-bold text-4xl">Personvern</h3>
             <Accordion type="single" collapsible className="w-full mt-20">
@@ -181,7 +181,7 @@ const InfoSenterFeatures = () => {
           </TabsContent>
           <TabsContent
             value="pricelist"
-            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-20"
+            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-4 md:p-10 lg:p-20"
           >
             <h3 className="font-bold text-2xl mb-6">For salg</h3>
             <p className="max-w-xl">
@@ -200,7 +200,7 @@ const InfoSenterFeatures = () => {
           </TabsContent>
           <TabsContent
             value="envelope"
-            className="bg-[#F2F2F7] text-navyblue h-[1200px] rounded-3xl p-20"
+            className="bg-[#F2F2F7] text-navyblue lg:h-[1200px] rounded-3xl p-4 md:p-10 lg:p-20"
           >
             <ContactSection />
           </TabsContent>

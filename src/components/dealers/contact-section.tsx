@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../ui/button";
 
 const ContactSection = () => {
   return (
@@ -12,8 +13,8 @@ const ContactSection = () => {
             Fyll inn skjema, så tar en av våre rådgivere kontakt med deg snart.
           </p>
         </div>
-        <div className="bg-slate-100 rounded-lg p-8 mt-10 max-w-[90%] mx-auto space-y-6 text-black font-roboto">
-          <div className="flex gap-x-5">
+        <div className="bg-slate-100 rounded-lg mt-10 md:max-w-[90%] mx-auto space-y-6 text-black font-roboto p-2 py-5 md:p-8 ">
+          <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-5">
             <div className="basis-[25%]">
               <label htmlFor="" className="text-xl text-black block">
                 Fornavn*
@@ -42,7 +43,7 @@ const ContactSection = () => {
               />
             </div>
           </div>
-          <div className="flex gap-x-5">
+          <div className="flex flex-col gap-y-5 md:gap-y-0 gap-x-5 md:flex-row">
             <div className="basis-[10%]">
               <label htmlFor="" className="text-xl text-black block">
                 Telefonnummer
@@ -63,7 +64,7 @@ const ContactSection = () => {
               />
             </div>
           </div>
-          <div className="flex gap-x-5">
+          <div className="flex flex-col gap-y-5 md:gap-y-0 gap-x-5 md:flex-row">
             <div className="basis-[50%]">
               <label htmlFor="" className="text-xl text-black block">
                 E-post*
@@ -74,7 +75,7 @@ const ContactSection = () => {
               />
             </div>
           </div>
-          <div className="flex gap-x-5">
+          <div className="flex flex-col gap-y-5 md:gap-y-0 gap-x-5 md:flex-row">
             <div className="basis-full">
               <label htmlFor="" className="text-xl text-black block">
                 Hva gjelder henvendelsen?*{" "}
@@ -85,10 +86,10 @@ const ContactSection = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center mt-10">
-            <button className="rounded-full px-40 py-3 bg-[#FF003D] text-white mx-auto font-neulis">
+          <div className="flex flex-col justify-center mt-10 md:flex-row">
+            <Button className="rounded-full md:px-40 h-auto md:py-3 bg-[#FF003D] text-white mx-auto font-neulis">
               Kontakt meg
-            </button>
+            </Button>
           </div>
         </div>
       </div>

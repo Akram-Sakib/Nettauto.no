@@ -11,9 +11,9 @@ import ProductSlide from "./product-slide";
 
 const ProductSliders = () => {
   return (
-    <section className="pt-24">
+    <section className="pt-6 md:pt-24">
       <Container>
-        <h1 className="text-navyblue mb-10 text-2xl font-semibold">
+        <h1 className="text-navyblue mb-10 text-xl md:text-2xl font-semibold">
           NOEN AV VÅRE AUKSJONER
         </h1>
         <div className="">
