@@ -76,7 +76,7 @@ const CountAchievement = () => {
               image: "/guy-with-car.svg",
             },
           ].map((item) => (
-            <Process {...item} />
+            <Process key={item.id} {...item} />
           ))}
         </Container>
       </div>
