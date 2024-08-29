@@ -35,7 +35,7 @@ const HeroSection = () => {
             </Button>
           </div>
         </div>
-        <div className="relative basis-full md:basis-[50%]">
+        <div className="relative basis-full md:basis-[50%] md:mt-24 lg:mt-0">
           <div className="bg-[#999999] absolute w-full lg:h-[250px] lg:w-[250px] xl:h-[400px] xl:w-[400px] rounded-full left-40 bottom-36 opacity-10" />
           <div className="relative lg:ml-32 xl:ml-60 mb-20">
             <Button className="bg-[#C51E46] rounded-xl absolute -top-20 -left-6">
@@ -53,7 +53,7 @@ const HeroSection = () => {
             alt="CarImage"
             width={796}
             height={266}
-            className="absolute z-10 md:top-[20%] w-full lg:w-[796px] lg:h-[266px] md:w-[400px] md:h-[300px]"
+            className="absolute z-10 md:top-[20%] w-full lg:w-[796px] lg:h-[266px]  md:h-[250px]"
           />
         </div>
       </Container>
