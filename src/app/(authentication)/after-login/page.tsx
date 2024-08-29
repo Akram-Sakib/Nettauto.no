@@ -1,4 +1,4 @@
-import AfterLogin from "@/components/after-login-page/after-login";
+import AfterLogin from "@/components/after-login/after-login";
 import React from "react";
 
 const page = () => {
