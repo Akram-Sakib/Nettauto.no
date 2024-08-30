@@ -43,123 +43,123 @@ const BusinessRegistrationForm = () => {
         <div className="flex justify-center items-center mb-10">
           <Image src={"/logo.png"} alt="Anne" width={300} height={57.47} />
         </div>
-        <div className="space-y-6">
+        <div className="2xl:space-y-6 space-y-3">
           <div className="flex gap-x-9 justify-between">
-            <div className="basis-[45%] [&>*>label]:text-base">
+            <div className="basis-[45%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="navn"
                 label="Navn"
-                className="border-2 border-[#EBEBEB] py-4 h-auto"
+                className="border-2 border-[#EBEBEB] py-2 2xl:py-4 h-auto"
               />
             </div>
-            <div className="basis-[45%] [&>*>label]:text-base">
+            <div className="basis-[45%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="fødselsdato"
                 label="Fødselsdato"
-                className="border-2 border-[#EBEBEB] py-4 h-auto"
+                className="border-2 border-[#EBEBEB] py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
-          <h3 className="font-inter font-semibold text-2xl border-b-2 border-[#e2e2e2]">
+          <h3 className="font-inter font-semibold text-xl 2xl:text-2xl border-b-2 border-[#e2e2e2]">
             Bedrift informasjon
           </h3>
           {/* Addresse & Postnr*/}
           <div className="flex gap-x-9">
-            <div className="basis-[60%] [&>*>label]:text-base">
+            <div className="basis-[60%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="bedriftsnavn"
                 label="Bedriftsnavn"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
-            <div className="basis-[40%] [&>*>label]:text-base">
+            <div className="basis-[40%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="organisasjons-nr"
                 label="Organisasjons nr"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
           {/* by  */}
           <div className="flex gap-x-9">
             <div className="flex gap-x-10 basis-[50%]">
-              <div className="basis-[50%] [&>*>label]:text-base">
+              <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
                 <FormInput
                   name="postnr"
                   label="Postnr"
-                  className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                  className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
                 />
               </div>
-              <div className="basis-[50%] [&>*>label]:text-base">
+              <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
                 <FormInput
                   name="Adresse"
                   label="Adresse"
-                  className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                  className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
                 />
               </div>
             </div>
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="By"
                 label="By"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
           <div className="flex gap-x-9">
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormPhoneInput
                 name="telephone"
                 label={"Telefonnummer"}
-                className="[&>button]:py-4 [&>input]:py-4 [&>button]:h-auto [&>input]:h-auto"
+                className="2xl:[&>button]:py-4 2xl:[&>input]:py-4 [&>button]:h-auto [&>input]:h-auto"
               />
             </div>
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="E-post"
                 label="E-post"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
           <div className="flex gap-x-9">
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="webside"
                 label="Webside"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="verslar"
                 label="E-port for verslar"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
-          <h3 className="font-inter font-semibold text-2xl border-b-2 border-[#e2e2e2]">
+          <h3 className="font-inter font-semibold text-xl 2xl:text-2xl border-b-2 border-[#e2e2e2]">
             Passord
           </h3>
           {/* passord  */}
           <div className="flex gap-x-9">
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="passord"
                 label="Passord"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
-            <div className="basis-[50%] [&>*>label]:text-base">
+            <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
               <FormInput
                 name="bekreft-passord"
                 label="Bekreft passord"
-                className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
               />
             </div>
           </div>
         </div>
-        <div className="my-5 flex justify-between">
+        <div className="2xl:my-5 flex justify-between">
           <div className="mt-8 space-y-4">
             <div className="flex items-center space-x-2">
               <Checkbox id="terms" />

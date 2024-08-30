@@ -13,6 +13,7 @@ const AdminCard = () => {
             alt="Profile"
             width={147}
             height={145}
+            className="lg:w-40 lg:h-36"
           />
         </div>
         <div className="space-y-6">
@@ -33,13 +34,13 @@ const AdminCard = () => {
         </div>
       </div>
       <div className="px-6 py-4 basis-[32%] flex flex-col justify-end">
-        <Button className="bg-[#D6F5EC] px-24 py-4 rounded-full h-auto w-auto text-[#008B65]">
+        <Button className="bg-[#D6F5EC] 2xl:px-24 py-4 rounded-full h-auto w-auto text-[#008B65]">
           Endre info/passord/rådgiver
         </Button>
       </div>
       <div className="text-right basis-[25%] p-2 pb-4 flex flex-col justify-between">
         <p className="text-sm text-[#0B5F7C]">Min profil</p>
-        <Button className="bg-[#FBD2D6] px-24 py-4 rounded-full h-auto w-auto text-[#EE5462]">
+        <Button className="bg-[#FBD2D6] 2xl:px-24 py-4 rounded-full h-auto w-auto text-[#EE5462]">
           Avslå
         </Button>
       </div>

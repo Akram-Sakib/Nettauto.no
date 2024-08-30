@@ -22,11 +22,11 @@ const EndOfAuctions = () => {
               <span className="font-bold">Søk etter:</span>{" "}
               <span>Reg nr/ Auksjon ID eller Rådgiver</span>
             </h4>
-            <div className="basis-full lg:basis-[50%]">
+            <div className="w-full lg:w-auto basis-full lg:basis-[50%]">
               <InputButton
                 endIcon={Search}
                 placeholder=""
-                className="border-[#EEEEEE] border rounded-3xl py-7 px-6 text-black xl:py-7 pr-0 focus:border-[#EEEEEE]"
+                className="border-[#EEEEEE] border rounded-3xl py-7 lg:px-6 text-black xl:py-7 pr-0 focus:border-[#EEEEEE]"
               />
             </div>
           </div>

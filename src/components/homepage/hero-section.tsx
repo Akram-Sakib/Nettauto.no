@@ -5,7 +5,7 @@ import Container from "../ui/container";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] w-full">
+    <section className="flex flex-col pt-60 pb-32 2xl:pt-0 2xl:pb-0 2xl:min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] w-full">
       <Container className="flex flex-col-reverse lg:flex-row justify-center xl:gap-x-20 mt-32 sm:mt-0 pb-10 sm:pb-0">
         <div className="basis-full md:basis-[50%] mt-32 sm:mt-40 md:mt-60 lg:mt-0">
           <div className="p-2 text-3xl md:text-[40px] md:leading-10">
@@ -30,7 +30,7 @@ const HeroSection = () => {
                 className="bg-white border-[#EBEBEB] border-2 rounded py-6 text-[#717171] text-sm md:text-base"
               />
             </div>
-            <Button className="text-sm md:text-base bg-[#FF003D] lg:px-32 xl:px-60 py-6 rounded-tr-none rounded-bl-none rounded-tl-sm rounded-br-sm mt-6">
+            <Button className="text-sm md:text-base bg-[#FF003D] lg:px-32 xl:px-60 py-6 mt-6">
               KOM I GANG
             </Button>
           </div>

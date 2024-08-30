@@ -41,7 +41,7 @@ const PrivateRegistrationForm = () => {
         className="basis-1/2 pt-5 bg-white pl-10 pr-5"
       >
         <div className="flex justify-center items-center mb-10">
-          <Image src={"/logo.png"} alt="Anne" width={300} height={57.47} />
+          <Image src={"/logo.png"} alt="Anne" width={300} height={57.47}  />
         </div>
         <div className="space-y-6">
           <div className="flex gap-x-9">

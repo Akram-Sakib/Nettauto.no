@@ -5,7 +5,7 @@ import { Separator } from "../ui/separator";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col lg:min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] py-10 md:py-20 lg:py-0">
+    <section className="flex flex-col justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] py-10 md:py-20 lg:py-60">
       <Container className="flex flex-col-reverse md:items-center md:flex-row justify-center gap-x-20">
         <div className="basis-full lg:basis-[50%] text-center lg:text-left">
           <div className="p-2 font-neulis font-bold text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] xl:leading-[64px]">

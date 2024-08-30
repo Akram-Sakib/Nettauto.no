@@ -3,7 +3,7 @@ import BusinessRegistrationImage from "@/components/business-customer-registrati
 
 const BusinessRegistration = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between items-stretch">
       <BusinessRegistrationForm />
       <BusinessRegistrationImage />
     </div>

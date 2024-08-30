@@ -11,7 +11,7 @@ const PrivateRegistrationImage = () => {
         }}
       />
       <Image
-        className=""
+        className="h-full"
         src={"/Group 127.png"}
         width={946}
         height={1162}
