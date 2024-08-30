@@ -51,7 +51,7 @@ export default function Navbar() {
       <header
         className={`w-full sticky z-30 top-0 flex items-center justify-between py-6 border-b border-[#E3E3E3] bg-opacity-30 backdrop-filter backdrop-saturate-150 backdrop-blur-lg firefox:bg-opacity-100 bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF]`}
       >
-        <nav className="flex items-center justify-between w-full px-4 mx-auto lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
+        <nav className="flex items-center justify-between w-full px-4 mx-auto container">
           <Link href="/">
             <Image
               src={"/logo.png"}
