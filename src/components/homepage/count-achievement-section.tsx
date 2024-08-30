@@ -56,24 +56,24 @@ const CountAchievement = () => {
             },
             {
               id: 2,
-              title: "FORTELL OSS OM DIN BIL",
+              title: "Vi GÅR GJENNOM ANNONSEN",
               description:
-                "Du lager enkelt en auksjon. Last opp bilder, legger inn beskrivelse og informasjon. Velg så en ønsket, men realistisk pris for gjenstanden og send auksjonen til godkjenning.",
-              image: "/guy-with-car.svg",
+                "Auksjonsrådgiver går gjennom annonsen og eventuelt justere denne for at du skal oppnå så høyt bud som mulig. Hvis vi trenger flere bilder eller mer utfyllende informasjon så tar vi kontakt med deg.",
+              image: "/leads-amico.svg",
             },
             {
               id: 3,
-              title: "FORTELL OSS OM DIN BIL",
+              title: "Auksjonen starter",
               description:
-                "Du lager enkelt en auksjon. Last opp bilder, legger inn beskrivelse og informasjon. Velg så en ønsket, men realistisk pris for gjenstanden og send auksjonen til godkjenning.",
-              image: "/guy-with-car.svg",
+                "Etter godkjenning starter auksjonen, du kan følge med på Min side",
+              image: "/Auction-pana.svg",
             },
             {
               id: 4,
-              title: "FORTELL OSS OM DIN BIL",
+              title: "AUKSJONEN AVSLUTTES",
               description:
-                "Du lager enkelt en auksjon. Last opp bilder, legger inn beskrivelse og informasjon. Velg så en ønsket, men realistisk pris for gjenstanden og send auksjonen til godkjenning.",
-              image: "/guy-with-car.svg",
+                "Etter endt auksjon, kan du velge og godta bud eller avslå. Om bud godtaes så betales salgsummen til vår klientkonto før utleveringsbevis sendes til kjøper. Så utbetaler vi til selger.",
+              image: "/Vehicle Sale-bro.svg",
             },
           ].map((item) => (
             <Process key={item.id} {...item} />

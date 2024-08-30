@@ -42,11 +42,11 @@ const ContactUs = () => {
                 Anne
               </p>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 lg:mt-0">
               <div className="border-2 border-[#F2EFFF] bg-white rounded-2xl p-4 drop-shadow-md shadow-[#020278] flex items-center justify-center">
                 <Image
-                  src={"/Anne.png"}
-                  alt="Anne"
+                  src={"/paul.png"}
+                  alt="Paul"
                   width={325}
                   height={325}
                   className="md:h-[325px] md:w-[325px] w-[150px] h-[150px]"

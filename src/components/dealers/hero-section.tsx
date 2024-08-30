@@ -50,7 +50,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex gap-x-4 items-center text-navyblue mt-2 text-xs xl:text-sm">
                   <p className="font-medium">122 Bud</p>
-                  <Button variant={"outline"} className="border-2 text-xs xl:text-base">
+                  <Button variant={"outline"} className="border-2 border-primaryred bg-transparent text-primaryred text-xs xl:text-base">
                     Live Now
                   </Button>
                   <p className="font-medium">Avsluttes om:</p>
@@ -88,7 +88,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex gap-x-4 items-center text-navyblue mt-2 text-xs xl:text-sm">
                   <p className="font-medium">122 Bud</p>
-                  <Button variant={"outline"} className="border-2 text-xs xl:text-base">
+                  <Button variant={"outline"} className="border-2 border-primaryred bg-transparent text-primaryred text-xs xl:text-base">
                     Live Now
                   </Button>
                   <p className="font-medium">Avsluttes om:</p>
@@ -126,7 +126,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex gap-x-4 items-center text-navyblue mt-2 text-xs xl:text-sm">
                   <p className="font-medium">122 Bud</p>
-                  <Button variant={"outline"} className="border-2 text-xs xl:text-base">
+                  <Button variant={"outline"} className="border-2 border-primaryred bg-transparent text-primaryred text-xs xl:text-base">
                     Live Now
                   </Button>
                   <p className="font-medium">Avsluttes om:</p>

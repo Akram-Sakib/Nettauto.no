@@ -8,7 +8,7 @@ const IntroSection = () => {
       <Container className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-6 justify-between">
         <div className="order-2 lg:order-1">
           <div className="border-2 border-[#F2EFFF] rounded-2xl p-4 flex items-center justify-center">
-            <Image src={"/Anne.png"} alt="Anne" width={325} height={325} className="lg:w-[325px] lg:h-[325px] w-[200px] h-[200px]" />
+            <Image src={"/Anne.png"} alt="Anne" width={325} height={325} className="lg:w-[325px] lg:h-[250px] w-[200px] h-[200px]" />
           </div>
           <p className="text-[#FF003D] text-center font-semibold text-xl lg:text-3xl">
             Anne
@@ -34,7 +34,7 @@ const IntroSection = () => {
         </div>
         <div className="order-3 lg:order-3">
           <div className="border-2 border-[#F2EFFF] rounded-2xl p-4 flex items-center justify-center">
-            <Image src={"/Anne.png"} alt="Anne" width={325} height={325} className="lg:w-[325px] lg:h-[325px] w-[200px] h-[200px]" />
+            <Image src={"/paul.png"} alt="Paul" width={325} height={325} className="lg:w-[325px] lg:h-[250px] w-[200px] h-[200px]" />
           </div>
           <p className="text-[#FF003D] text-center font-semibold text-xl lg:text-3xl">
             Paul
