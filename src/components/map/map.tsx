@@ -11,7 +11,7 @@ const Map = () => {
     <MapContainer
       center={position}
       zoom={20}
-      className="w-full min-h-[800px] rounded-lg border-none z-10"
+      className="w-full h-[400px] lg:min-h-[800px] rounded-lg border-none z-10"
       zoomControl={false}
       attributionControl={false}
     >

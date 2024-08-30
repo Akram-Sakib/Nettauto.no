@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col md:min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] w-full">
       <Container className="flex flex-col-reverse lg:flex-row justify-center xl:gap-x-20 mt-32 sm:mt-0 pb-10 sm:pb-0">
-        <div className="basis-full md:basis-[50%] mt-32 md:mt-60 lg:mt-0">
+        <div className="basis-full md:basis-[50%] mt-32 sm:mt-40 md:mt-60 lg:mt-0">
           <div className="p-2 text-3xl md:text-[40px] md:leading-10">
             <h1 className="text-black font-semibold mb-5 md:mb-10 font-neulis">
               Enkel bilsalg <br />
@@ -53,7 +53,7 @@ const HeroSection = () => {
             alt="CarImage"
             width={796}
             height={266}
-            className="absolute z-10 md:top-[20%] w-full lg:w-[796px] lg:h-[266px]  md:h-[250px]"
+            className="absolute z-10 md:top-[20%] w-full lg:w-[796px] lg:h-[266px] md:h-[250px] sm:h-[200px]"
           />
         </div>
       </Container>

@@ -62,7 +62,7 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block md:space-x-4 lg:space-x-8">
+            <div className="hidden md:block md:space-x-4 lg:space-x-8">
               {/* text-gray-700 dark: */}
               {headerNavLinks.map((link) => (
                 <Link
@@ -78,11 +78,11 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-            <div className="flex items-center sm:hidden">
+            <div className="flex items-center md:hidden">
               <MenuButton onClick={onMenuToggle} isOpened={menuShow} />
             </div>
           </div>
-          <div className="hidden sm:flex items-center md:text-sm font-bold lg:text-base leading-5">
+          <div className="hidden md:flex items-center md:text-sm font-bold lg:text-base leading-5">
             <div className="md:space-x-4 sm:space-x-2 lg:space-x-8 text-white">
               <Link
                 href="/login"

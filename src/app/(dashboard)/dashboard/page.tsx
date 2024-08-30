@@ -54,7 +54,7 @@ export default function DashboardPage() {
   return (
     <ScrollArea className="h-full pl-6">
       <div className="flex-1 space-y-10 p-4 md:p-8 pt-6">
-        <div className="flex justify-center gap-x-4">
+        <div className="flex flex-col md:flex-row justify-center gap-x-4">
           {navMenu.map(({ id, title, icon }) => (
             <Fragment key={id}>
               <div className="flex gap-x-3 items-center">
@@ -64,8 +64,8 @@ export default function DashboardPage() {
             </Fragment>
           ))}
         </div>
-        <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-bold tracking-tight font-neulis">
+        <div className="flex flex-col-reverse gap-y-6 md:gap-y-0 md:flex-row items-start md:items-center justify-between">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight font-neulis">
             Dashboard
           </h2>
           <div className="flex gap-x-14">
@@ -110,13 +110,13 @@ export default function DashboardPage() {
         </div>
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsContent value="overview" className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               <PiechartTotal />
               <PiechartTotal />
               <PiechartTotal />
             </div>
-            <div className="flex gap-x-6 justify-between">
-              <Card className="basis-[80%]">
+            <div className="flex flex-col gap-y-6 md:gap-y-0 md:flex-row gap-x-6 md:justify-between">
+              <Card className="basis-full md:basis-[80%]">
                 <CardHeader>
                   <CardTitle>Weekly Traffic Statistics</CardTitle>
                 </CardHeader>
@@ -124,12 +124,12 @@ export default function DashboardPage() {
                   <Overview />
                 </CardContent>
               </Card>
-              <div>
-                <Card className="basis-[20%] font-inter text-center">
+              <div className="">
+                <Card className="basis-full md:basis-[20%] font-inter text-center">
                   <CardHeader>
                     <h1 className="text-xl">Filter By Date</h1>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex justify-center">
                     <Calendar
                       mode="single"
                       selected={date}
@@ -142,7 +142,7 @@ export default function DashboardPage() {
             </div>
           </TabsContent>
         </Tabs>
-        <div className="flex gap-x-6 justify-end">
+        <div className="flex flex-col md:flex-row gap-y-4 md:gap-x-6 justify-end">
           <Card className="bg-white px-4 py-2">
             <CardHeader>
               <div className="flex items-center gap-x-6">

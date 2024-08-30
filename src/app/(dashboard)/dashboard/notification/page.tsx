@@ -25,10 +25,10 @@ const Notification = () => {
     <ScrollArea className="h-full bg-white pl-6">
       <div className="flex-1 space-y-10 p-4 md:p-8 pt-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-bold tracking-tight font-neulis">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight font-neulis">
             Nye godkjenninger
           </h2>
-          <div className="flex gap-x-14">
+          <div className="flex gap-x-6 lg:gap-x-14">
             <p className="text-[#0B5F7C] font-roboto font-medium">
               Loggin as: Elisabeth
             </p>
@@ -70,7 +70,7 @@ const Notification = () => {
         </div>
 
         <div className="">
-          <div className="max-w-lg mx-auto">
+          <div className="md: max-w-lg mx-auto">
             <InputButton
               endIcon={Search}
               placeholder="Organisasjonsnr / Bedriftsnavn / Navn/ Telefon nr"

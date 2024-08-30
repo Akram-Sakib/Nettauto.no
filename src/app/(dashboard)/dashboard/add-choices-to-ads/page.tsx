@@ -11,18 +11,18 @@ const QuilTextEditor = dynamic(
 );
 const AdminList = () => {
   return (
-    <ScrollArea className="h-full pl-6 m-10 ">
+    <ScrollArea className="h-full lg:pl-6 m-10 ">
       <div className="mb-6 space-y-8">
         <h2 className="text-2xl font-bold tracking-tight">Legg til</h2>
       </div>
       <div className="flex-1 space-y-10 p-4 md:p-8 pt-6 bg-white rounded-2xl">
-        <div className="space-y-20">
+        <div className="space-y-20 ">
           {/* Component */}
           <div>
             <Label className="text-lg font-bold mb-10 block text-primaryred">
               Utstyr
             </Label>
-            <div className="grid grid-cols-4 gap-y-5 text-[#717171]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-5 text-[#717171]">
               <div className="space-y-4">
                 <p>Auxiliary heating</p>
                 <p>Bluetooth</p>
@@ -57,7 +57,7 @@ const AdminList = () => {
             <Label className="text-lg font-bold mb-10 block text-primaryred">
               Farge
             </Label>
-            <div className="grid grid-cols-4 gap-y-5 text-[#717171]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-5 text-[#717171]">
               <div className="space-y-4">
                 <p>Auxiliary heating</p>
                 <p>Bluetooth</p>
@@ -80,7 +80,7 @@ const AdminList = () => {
             <Label className="text-lg font-bold mb-10 block text-primaryred">
               Girtype
             </Label>
-            <div className="grid grid-cols-4 gap-y-5 text-[#717171]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-5 text-[#717171]">
               <div className="space-y-4">
                 <p>Auxiliary heating</p>
                 <p>Bluetooth</p>
@@ -99,8 +99,8 @@ const AdminList = () => {
             </Button>
           </div>
           {/* Component */}
-          <div className="flex gap-x-20">
-            <div className="basis-[30%]">
+          <div className="flex flex-col lg:flex-row gap-x-20">
+            <div className="basis-full lg:basis-[30%]">
               <Label className="text-lg font-bold mb-10 block text-primaryred">
                 By
               </Label>
@@ -125,7 +125,7 @@ const AdminList = () => {
             <div className="">
               <Separator orientation="vertical" className="h-full w-[2px]" />
             </div>
-            <div className="">
+            <div className="mt-10 lg:mt-0">
               <Label className="text-lg font-bold mb-10 block text-primaryred">
                 Hjuldrift
               </Label>
@@ -143,12 +143,12 @@ const AdminList = () => {
             </div>
           </div>
           {/* Component */}
-          <div>
+          <div >
             <Label className="text-lg font-bold mb-10 block text-primaryred">
               Girtype
             </Label>
             <QuilTextEditor />
-            <Button className="bg-[#263238] rounded-full font-inter font-normal text-base mt-20 px-10">
+            <Button className="bg-[#263238] rounded-full font-inter font-normal text-base mt-60 lg:mt-20 px-10">
               Save
             </Button>
           </div>

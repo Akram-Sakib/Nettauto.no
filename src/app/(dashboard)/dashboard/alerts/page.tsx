@@ -19,13 +19,13 @@ const EndOfAuctions = () => {
 
         <div className="space-y-8 mt-14">
           <Alert className="bg-[#EFEFEF] px-8">
-            <AlertDescription className="text-lg text-black">
+            <AlertDescription className="font-roboto text-sm font-medium md:text-base lg:text-lg text-black">
               Du har mottatt ny bud på{" "}
               <span className="text-primaryred">2022 Toyota Corolla</span>.
             </AlertDescription>
           </Alert>
           <Alert className="bg-[#EFEFEF] px-8">
-            <AlertDescription className="text-lg text-black">
+            <AlertDescription className="font-roboto text-sm font-medium md:text-base lg:text-lg text-black">
               GRATULERER {`:)`}{" "}
               <span className="text-primaryred">2022 Toyota Corolla</span> er
               avsluttet. Høyeste bud du har mottatt eR 200 000 kr. Vennligst gå
@@ -33,7 +33,7 @@ const EndOfAuctions = () => {
             </AlertDescription>
           </Alert>
           <Alert className="bg-[#EFEFEF] px-8">
-            <AlertDescription className="text-lg text-black">
+            <AlertDescription className="font-roboto text-sm font-medium md:text-base lg:text-lg text-black">
               GRATULERER!Din bil{" "}
               <span className="text-primaryred">2022 Toyota Corolla</span> er
               blitt solgt til høyeste bud. .

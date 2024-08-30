@@ -7,7 +7,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const EndOfAuctions = () => {
   return (
     <ScrollArea className="h-full bg-white pl-6 rounded-2xl">
-      <div className="flex-1 space-y-20 p-4 md:p-8 pt-6">
+      <div className="flex-1 space-y-10 lg:space-y-20 p-4 md:p-8 pt-6">
         <div className="flex justify-end">
           <Button className="bg-[#FF003D] px-10">Ny auksjon</Button>
         </div>
@@ -17,7 +17,7 @@ const EndOfAuctions = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
           <ProductSlide />
         </div>
       </div>
