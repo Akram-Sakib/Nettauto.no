@@ -8,7 +8,7 @@ const HeroSection = () => {
     <section className="flex flex-col lg:min-h-screen justify-center relative bg-gradient-to-r from-[#DBF4FF] to-[#F8FCFF] py-10 md:py-20 lg:py-0">
       <Container className="flex flex-col-reverse md:items-center md:flex-row justify-center gap-x-20">
         <div className="basis-full lg:basis-[50%] text-center lg:text-left">
-          <div className="p-2 font-neulis font-bold text-xl md:text-2xl xl:text-[40px] xl:leading-[64px]">
+          <div className="p-2 font-neulis font-bold text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] xl:leading-[64px]">
             <h1 className="text-black">SELG KOSTNADSFRITT HOS OSS</h1>
             <h1 className="text-[#FF003D]">Selg raskt, trygt og enkelt.</h1>
           </div>
@@ -34,7 +34,7 @@ const HeroSection = () => {
                   </h3>
                   <p className="text-[#717171] self-end text-xs">Back wheel</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-[#717171] text-xs xl:text-sm">
                   <p>13000 km</p>
                   <p>2022</p>
@@ -42,7 +42,7 @@ const HeroSection = () => {
                   <p>4.0 L</p>
                   <p>Benzin</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-primaryred text-xs xl:text-sm">
                   <p>122 Bud</p>
                   <p>Status</p>
@@ -72,7 +72,7 @@ const HeroSection = () => {
                   </h3>
                   <p className="text-[#717171] self-end text-xs">Back wheel</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-[#717171] text-xs xl:text-sm">
                   <p>13000 km</p>
                   <p>2022</p>
@@ -80,7 +80,7 @@ const HeroSection = () => {
                   <p>4.0 L</p>
                   <p>Benzin</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-primaryred text-xs xl:text-sm">
                   <p>122 Bud</p>
                   <p>Status</p>
@@ -110,7 +110,7 @@ const HeroSection = () => {
                   </h3>
                   <p className="text-[#717171] self-end text-xs">Back wheel</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-[#717171] text-xs xl:text-sm">
                   <p>13000 km</p>
                   <p>2022</p>
@@ -118,7 +118,7 @@ const HeroSection = () => {
                   <p>4.0 L</p>
                   <p>Benzin</p>
                 </div>
-                <Separator className="my-4" />
+                <Separator className="my-4 lg:my-2" />
                 <div className="flex gap-x-4 text-primaryred text-xs xl:text-sm">
                   <p>122 Bud</p>
                   <p>Status</p>
@@ -134,28 +134,6 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
-          {/* <Image
-            src={"/image3.png"}
-            alt="CarImage"
-            width={373}
-            height={417}
-            className="lg:absolute top-[-300px] left-[0px] z-10 md:w-[100px] md:h-[150px] lg:w-[373px] lg:h-[417]"
-          />
-          <Image
-            src={"/image.png"}
-            alt="CarImage"
-            width={373}
-            height={417}
-            className="lg:absolute top-[-30px] left-[200px] z-20 md:w-[100px] md:h-[150px] lg:w-[373px] lg:h-[417]"
-          />
-          <Image
-            src={"/image2.png"}
-            alt="CarImage"
-            width={373}
-            height={417}
-            className="lg:absolute top-[-150px] left-[540px] z-10 md:w-[100px] md:h-[150px] lg:w-[373px] lg:h-[417]"
-          /> */}
         </div>
       </Container>
     </section>
