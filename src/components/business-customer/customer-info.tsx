@@ -38,7 +38,7 @@ const CustomerInfo = () => {
           <p className="text-xs xl:text-sm text-[#0B5F7C]">Postnummer: 3048</p>
         </div>
       </div>
-      <div className="px-6 py-4 basis-[27%] flex flex-col gap-y-4 lg:gap-y-0 justify-between">
+      <div className="px-6 py-4 basis-[27%] flex flex-col gap-y-4 justify-between">
         <Button className="bg-[#6BA5B8] 2xl:px-24 py-4 rounded-full h-auto w-auto text-[#6BA5B8] bg-opacity-40 text-xs xl:text-base">
           Sperre kunde
         </Button>

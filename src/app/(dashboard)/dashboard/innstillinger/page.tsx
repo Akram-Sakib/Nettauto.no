@@ -10,7 +10,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Form } from "@/components/ui/form";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
-import { AiFillCheckCircle } from "react-icons/ai";
 const formSchema = z.object({
   carRegNo: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -33,101 +32,101 @@ const InnStillinger = () => {
   }
 
   return (
-    <ScrollArea className="h-full">
-      <div className="flex-1 p-4 md:p-8 pt-6 bg-white">
-        <div className="mb-20 space-y-8">
-          <h2 className="text-2xl font-bold tracking-tight">
+    <ScrollArea className="h-full bg-white">
+      <div className="flex-1 p-4 md:p-8 pt-6 ">
+        <div className="mb-8 lg:mb-20 space-y-8">
+          <h2 className="text-xl lg:text-2xl font-bold tracking-tight">
             Innstillinger - <span className="text-primaryred">privat</span>
           </h2>
         </div>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="basis-1/2 pt-5 bg-white pl-10 pr-5"
+            className="lg:pt-5 bg-white lg:pl-10 lg:pr-5"
           >
             <div className="space-y-6">
-              <div className="flex gap-x-9">
-                <div className="basis-[33%] [&>*>label]:text-base">
+              <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-9">
+                <div className="basis-[33%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="kontaktperson"
                     label="Kontaktperson"
-                    className="border-2 border-[#EBEBEB] py-4 h-auto"
+                    className="border-2 border-[#EBEBEB] py-2 lg:py-4 h-auto"
                   />
                 </div>
-                <div className="basis-[33%] [&>*>label]:text-base">
+                <div className="basis-[33%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="telephone"
                     label="E-post"
-                    className="border-2 border-[#EBEBEB] py-4 h-auto"
+                    className="border-2 border-[#EBEBEB] py-2 lg:py-4 h-auto"
                   />
                 </div>
-                <div className="basis-[33%] [&>*>label]:text-base">
+                <div className="basis-[33%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="telephone"
                     label="Telefon nr"
-                    className="border-2 border-[#EBEBEB] py-4 h-auto"
+                    className="border-2 border-[#EBEBEB] py-2 lg:py-4 h-auto"
                   />
                 </div>
               </div>
               {/* Addresse & Postnr*/}
-              <div className="flex gap-x-9">
-                <div className="basis-[40%] [&>*>label]:text-base">
+              <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-9">
+                <div className="basis-[40%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="passord"
                     label="Passord"
                     type="password"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
-                <div className="basis-[20%] [&>*>label]:text-base">
+                <div className="basis-[20%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="postnr"
                     label="Postnr"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
-                <div className="basis-[40%] [&>*>label]:text-base">
+                <div className="basis-[40%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="address"
                     label="Address"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
               </div>
               {/* by  */}
-              <div className="flex gap-x-9">
-                <div className="basis-[30%] [&>*>label]:text-base">
+              <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-9">
+                <div className="basis-[30%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="e-post-varsler"
                     label="E-post for varsler"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
-                <div className="basis-[70%] [&>*>label]:text-base">
+                <div className="basis-[70%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="by"
                     label="By"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
               </div>
               {/* by  */}
-              <div className="flex gap-x-9">
-                <div className="basis-[30%] [&>*>label]:text-base">
+              <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-9">
+                <div className="basis-[30%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="e-post-varsler"
                     label="E-post for varsler"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
               </div>
-              {/* by  */}
-              <div className="flex gap-x-9">
-                <div className="basis-[30%] [&>*>label]:text-base">
+              {/* fodselsdato  */}
+              <div className="flex flex-col lg:flex-row gap-y-6 lg:gap-y-0 gap-x-9">
+                <div className="basis-[30%] [&>*>label]:text-sm lg:[&>*>label]:text-base">
                   <FormInput
                     name="fødselsdato"
                     label="Fødselsdato"
-                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-4 h-auto"
+                    className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 lg:py-4 h-auto"
                   />
                 </div>
               </div>

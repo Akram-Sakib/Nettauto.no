@@ -41,7 +41,9 @@ const BusinessRegistrationForm = () => {
         className="basis-[70%] pt-5 bg-white px-20"
       >
         <div className="flex justify-center items-center mb-10">
-          <Image src={"/logo.png"} alt="Anne" width={300} height={57.47} />
+          <Link href="/">
+            <Image src={"/logo.png"} alt="Anne" width={300} height={57.47} />
+          </Link>
         </div>
         <div className="2xl:space-y-6 space-y-3">
           <div className="flex gap-x-9 justify-between">
