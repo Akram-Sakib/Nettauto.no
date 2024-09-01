@@ -60,3 +60,6 @@ export const navItems: NavItem[] = [
     },
 
 ]
+
+export const AUTH_KEY = "accessToken";
+export const ACCESS_TOKEN_KEY = "nettauto-access-token";

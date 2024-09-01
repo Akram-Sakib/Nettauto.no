@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
+import { Toaster } from "@/components/ui/toaster";
+import Providers from "@/components/providers";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700", "900"],
@@ -52,15 +54,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  session,
 }: Readonly<{
   children: React.ReactNode;
+  session: any;
 }>) {
   return (
     <html lang="en">
       <body
         className={`${roboto.variable} ${inter.variable} ${neulis.variable} dark:bg-[#0d1224] dark:text-[rgb(var(--foreground-rgb))] bg-white antialiased text-black`}
       >
-        {children}
+        <Providers session={session}>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   );
