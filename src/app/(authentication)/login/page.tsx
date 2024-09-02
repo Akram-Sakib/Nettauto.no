@@ -1,11 +1,11 @@
-import LeftContentLogin from "@/components/login/left-content-login";
+import LoginUserAuthForm from "@/components/login/login-user-authform";
 import RightContentLogin from "@/components/login/right-content-login";
 import React from "react";
 
 const page = () => {
   return (
     <div className="lg:h-full min-h-screen 2xl:h-screen flex flex-col lg:flex-row justify-between relative px-6 lg:px-0">
-      <LeftContentLogin />
+      <LoginUserAuthForm />
       <RightContentLogin />
 
       <div className="absolute inset-x-0 bottom-0 pb-4 hidden lg:block">

@@ -6,7 +6,7 @@ export const headerNavLinks = [
     { href: "/dealers", title: "Hvordan fungerer det" },
 ];
 
-export const navItems: NavItem[] = [
+export const navItems = (role: string): NavItem[] => [
     {
         title: "Dashboard",
         href: "/dashboard",
@@ -58,8 +58,26 @@ export const navItems: NavItem[] = [
         href: "/dashboard/alerts",
         label: "Alerts",
     },
-
-]
+    {
+        title: "Innstillinger",
+        href: "/dashboard/innstillinger",
+        label: "Innstillinger",
+    },
+].filter(item => {
+    if (role === "seller") {
+        const renderPages = ["Mine auksjoner", "Solgte biler", "Varsler"];
+        return renderPages.includes(item.title);
+    } else if (role === "buyer") {
+        const renderPages = ["Bedriftskunder", "Varsler", "Innstillinger"];
+        return renderPages.includes(item.title); // Hide only Membership for admin
+    }
+    else if (role === "admin") {
+        // Kunder for godkjenninger
+        // "Varsler"
+        return item.title !== "Membership"; // Hide only Membership for admin
+    }
+    return true; // Show all items for other roles
+});
 
 export const AUTH_KEY = "accessToken";
 export const ACCESS_TOKEN_KEY = "nettauto-access-token";

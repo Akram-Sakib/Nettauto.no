@@ -4,34 +4,62 @@ import Image from "next/image";
 import FormInput from "../form-elements/form-input";
 import { Button } from "../ui/button";
 import { Form } from "../ui/form";
-
 import { z } from "zod";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { toast } from "../ui/use-toast";
 
-const formSchema = z.object({
-  carRegNo: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+export const formSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
 });
 
-const LeftContentLogin = () => {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
+type FormData = z.infer<typeof formSchema>;
+
+const LoginUserAuthForm = () => {
+  const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      carRegNo: "",
-    },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const onSubmit = (data: FormData) => {
+    setIsLoading(true);
+
+    signIn("my-app-credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+      // callbackUrl: searchParams?.get("from") || "/dashboard",
+    })
+      .then((res) => {
+        if (!res?.ok) {
+          return toast({
+            title: "Something went wrong.",
+            description: "Your sign in request failed. Please try again.",
+            variant: "destructive",
+          });
+        }
+
+        toast({
+          title: "Sign In Successful",
+          description: "You have successfully signed in.",
+        });
+
+        // Redirect to dashboard on successful sign-in
+        router.push(searchParams?.get("from") || "/after-login");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+  };
 
   return (
     <div className="w-full lg:w-1/2 pb-40">
@@ -52,7 +80,7 @@ const LeftContentLogin = () => {
                 <div className="mb-4 [&>div>label]:text-black [&>div>label]:block [&>div>label]:font-roboto [&>div>label]:text-sm">
                   <FormInput
                     label="Brukernavn (e-postadresse)"
-                    name="username"
+                    name="email"
                     type="text"
                     className="bg-white rounded-lg border-2 border-[#EBEBEB] h-auto py-3 w-full text-black"
                   />
@@ -68,13 +96,17 @@ const LeftContentLogin = () => {
                   <p className="mt-1 text-[#FF003D] text-xs font-medium text-right">
                     <Link href="/forgot-password">Glemt passord</Link>
                   </p>
-                  <Button className="text-sm xl:text-base bg-[#FF003D] py-4 my-6 block w-full h-auto font-medium">
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="text-sm xl:text-base bg-[#FF003D] py-4 my-6 block w-full h-auto font-medium"
+                  >
                     LOGG INN
                   </Button>
                   <p className="text-center text-black">
                     Har du ikke konto?{" "}
                     <Link
-                      href={"/register"}
+                      href={"/new-register"}
                       className="cursor-pointer text-[#FF003D] font-bold"
                     >
                       Registrer deg
@@ -90,4 +122,4 @@ const LeftContentLogin = () => {
   );
 };
 
-export default LeftContentLogin;
+export default LoginUserAuthForm;

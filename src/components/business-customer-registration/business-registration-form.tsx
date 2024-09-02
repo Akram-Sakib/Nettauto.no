@@ -1,79 +1,96 @@
 "use client";
 
-import Image from "next/image";
-import { AiFillCheckCircle } from "react-icons/ai";
-import { Button } from "../ui/button";
-import { Checkbox } from "../ui/checkbox";
-import { Form } from "../ui/form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import FormInput from "../form-elements/form-input";
-import FormPhoneInput from "../form-elements/form-phone-input";
-import Link from "next/link";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { axiosInstance } from "@/helpers/axios/axiosInstance";
 import { QueryKeys } from "@/data/queryKeys";
-import { toast } from "../ui/use-toast";
+import { axiosInstance } from "@/helpers/axios/axiosInstance";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { z } from "zod";
 import FormCheckBox from "../form-elements/form-checkbox";
 import FormDateOfBirth from "../form-elements/form-date-of-birth";
+import FormInput from "../form-elements/form-input";
+import FormPhoneInput from "../form-elements/form-phone-input";
+import { Button } from "../ui/button";
+import { Form } from "../ui/form";
+import { toast } from "../ui/use-toast";
+import { useRouter } from "next/navigation";
+import ValidationMessage from "../ui/validation-message";
 
-const formSchema = z.object({
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
-    .email(),
-  password: z.string(),
-  businessCustomer: z.object({
-    contactPerson: z.string({
-      required_error: "Contact Person is required",
-    }),
-    companyName: z.string({
-      required_error: "Company Name is required",
-    }),
-    organizationNo: z.string({
-      required_error: "Organization No is required",
-    }),
-    dateOfBirth: z.coerce.date({
-      required_error: "Date of birth is required",
-      invalid_type_error: "Invalid type for date of birth",
-    }),
-    emailForNotifications: z
+const formSchema = z
+  .object({
+    email: z
       .string({
-        required_error: "Email For Notifications is required",
+        required_error: "Email is required",
       })
       .email(),
-    contactNo: z.string({
-      required_error: "Contact number is required",
+    password: z
+      .string()
+      .min(12, { message: "Minst 12 tegn" })
+      .regex(/[a-z]/, { message: "Minst 1 liten bokstav" })
+      .regex(/[A-Z]/, { message: "Minst 1 stor bokstav" })
+      .regex(/\d/, { message: "Minst 1 tall" })
+      .regex(/[!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, {
+        message: "Minst 1 symbol (!“#$%&‘()*+,-./:;<=>?@[]^_`{|}~)",
+      }),
+    businessCustomer: z.object({
+      contactPerson: z.string({
+        required_error: "Contact Person is required",
+      }),
+      companyName: z.string({
+        required_error: "Company Name is required",
+      }),
+      organizationNo: z.string({
+        required_error: "Organization No is required",
+      }),
+      dateOfBirth: z.coerce.date({
+        required_error: "Date of birth is required",
+        invalid_type_error: "Invalid type for date of birth",
+      }),
+      emailForNotifications: z
+        .string({
+          required_error: "Email For Notifications is required",
+        })
+        .email(),
+      contactNo: z.string({
+        required_error: "Contact number is required",
+      }),
+      postalNo: z.string({
+        required_error: "Postal No is Required",
+      }),
+      address: z.string({
+        required_error: "Address is Required",
+      }),
+      website: z.string({
+        required_error: "Website is Required",
+      }),
+      city: z.string({
+        required_error: "City is Required",
+      }),
+      acceptTerms: z.boolean({
+        required_error: "Accept Terms is Required",
+      }),
+      auctionsEmail: z.boolean({
+        required_error: "Auctions Email is Required",
+      }),
+      bidEmail: z.boolean({
+        required_error: "Bid Email is Required",
+      }),
+      profileImage: z.string().optional(),
     }),
-    postalNo: z.string({
-      required_error: "Postal No is Required",
-    }),
-    address: z.string({
-      required_error: "Address is Required",
-    }),
-    website: z.string({
-      required_error: "Website is Required",
-    }),
-    city: z.string({
-      required_error: "City is Required",
-    }),
-    acceptTerms: z.boolean({
-      required_error: "Accept Terms is Required",
-    }),
-    auctionsEmail: z.boolean({
-      required_error: "Auctions Email is Required",
-    }),
-    bidEmail: z.boolean({
-      required_error: "Bid Email is Required",
-    }),
-    profileImage: z.string().optional(),
-  }),
-});
+    confirmPassword: z.string().min(1, "Bekreft passordet er påkrevd"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Passordene samsvarer ikke",
+  });
 
 const BusinessRegistrationForm = () => {
   const queryClient = useQueryClient();
+  const router = useRouter();
   const { mutate: createMutation, isPending: createIsPending } = useMutation({
     mutationFn: async (data: any) => {
       const res = await axiosInstance.post(
@@ -99,8 +116,7 @@ const BusinessRegistrationForm = () => {
           description: "Your registration has been successfully submitted.",
         });
 
-        // redirect to ssl commerz sandbox url from success
-        window.location.replace(res.data.paymentGatewayPageURL);
+        router.push("/login");
       } else {
         toast({
           variant: "destructive",
@@ -145,12 +161,43 @@ const BusinessRegistrationForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("clicked");
-
+    //@ts-ignore
+    delete values.confirmPassword;
+    createMutation(values);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  const { watch } = form;
+
+  const [validations, setValidations] = useState({
+    length: false,
+    lowercase: false,
+    uppercase: false,
+    number: false,
+    symbol: false,
+  });
+
+  const password = watch("password", "");
+
+  // Validation function to update state based on password criteria
+  const validatePassword = (value: string) => {
+    const validationStatus = {
+      length: value.length >= 12,
+      lowercase: /[a-z]/.test(value),
+      uppercase: /[A-Z]/.test(value),
+      number: /\d/.test(value),
+      symbol: /[!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/.test(value),
+    };
+    setValidations(validationStatus);
+    return Object.values(validationStatus).every(Boolean);
+  };
+
+  // Update validation state when password changes
+  useEffect(() => {
+    validatePassword(password);
+  }, [password]);
 
   return (
     <Form {...form}>
@@ -275,11 +322,11 @@ const BusinessRegistrationForm = () => {
               />
             </div>
             <div className="basis-[50%] text-sm 2xl:[&>*>label]:text-base">
-              {/* <FormInput
-                name="bekreft-passord"
+              <FormInput
+                name="confirmPassword"
                 label="Bekreft passord"
                 className="bg-white rounded-lg border-2 border-gray-100 w-full py-2 2xl:py-4 h-auto"
-              /> */}
+              />
             </div>
           </div>
         </div>
@@ -301,7 +348,7 @@ const BusinessRegistrationForm = () => {
             <div className="flex items-center space-x-2">
               <FormCheckBox
                 name="businessCustomer.auctionsEmail"
-                label="Ved å registrere deg aksepterer du  våre brukerbetingelser og personvernpolicy"
+                label="Motta e-post ved nye auksjoner"
               />
               {/* <Checkbox id="terms" />
               <label
@@ -315,7 +362,7 @@ const BusinessRegistrationForm = () => {
             <div className="flex items-center space-x-2">
               <FormCheckBox
                 name="businessCustomer.bidEmail"
-                label="Ved å registrere deg aksepterer du  våre brukerbetingelser og personvernpolicy"
+                label="Send meg e-post når det blir gitt høyre bud på auksjoner jeg har gitt bud"
               />
               {/* <label
                 htmlFor="terms"
@@ -332,43 +379,8 @@ const BusinessRegistrationForm = () => {
               Registrer meg
             </Button>
           </div>
-          {/* validetion  */}
-          <div className=" text-black ml-6">
-            <div className="mt-4 flex items-center gap-1">
-              <span>
-                <AiFillCheckCircle className=" text-gray-400" />
-              </span>
-              Minst 12 tegn
-            </div>
-            <div className="mt-4 flex items-center gap-1">
-              <span>
-                <AiFillCheckCircle className=" text-gray-400" />
-              </span>
-              Middels eller sterkt passord
-            </div>
-            <div className="mt-4 flex items-center gap-1">
-              {" "}
-              <span>
-                <AiFillCheckCircle className=" text-gray-400" />
-              </span>
-              Minst 1 liten bokstav
-            </div>
-            <div className="mt-4 flex items-center gap-1">
-              {" "}
-              <span>
-                <AiFillCheckCircle className=" text-gray-400" />
-              </span>
-              Minst 1 stor bokstav
-            </div>
-            <div className="mt-4 flex items-center gap-1">
-              {" "}
-              <span>
-                <AiFillCheckCircle className=" text-gray-400" />
-              </span>
-              Minst 1 tall
-            </div>
-            {/* <h2> <span></span>Minst 1 symbol (`!“#$%&‘()*+,-./:;<=>?@[]^_`{|}~`)</h2> */}
-          </div>
+          {/* validation  */}
+          <ValidationMessage validations={validations} />
         </div>
       </form>
     </Form>

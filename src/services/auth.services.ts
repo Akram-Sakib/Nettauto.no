@@ -1,11 +1,11 @@
 "use server";
 
-import { instance as axiosInstance } from "@/helpers/axios/axiosInstance";
-import { getBaseUrl } from "@/helpers/config/envConfig";
+import { axiosInstance } from "@/helpers/axios/axiosInstance";
+import { envConfig } from "@/helpers/config/envConfig";
 
 export const getNewAccessToken = async (token: string) => {
   const result = await axiosInstance({
-    url: `${getBaseUrl()}/auth/refresh-token`,
+    url: `${envConfig.backendUrl}/auth/refresh-token`,
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: token },
     withCredentials: true,
@@ -18,7 +18,7 @@ export const login = async (credentials: {
   password: string | undefined;
 }) => {
   const result = await axiosInstance({
-    url: `${getBaseUrl()}/auth/login`,
+    url: `${envConfig.backendUrl}/auth/login`,
     method: "POST",
     headers: { "Content-Type": "application/json" },
     data: JSON.stringify({

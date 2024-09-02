@@ -4,6 +4,8 @@ import { DashboardNav } from "./dashboard-nav";
 import Image from "next/image";
 import { DashboardCard } from "./dashboard-card";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 
 // import { Playlist } from "../data/playlists";
 
@@ -12,6 +14,10 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export default async function Sidebar({ className }: SidebarProps) {
+  // const session = (await getServerSession(authOptions)) as any;
+  // const role = session?.role;
+  const role = "buyer";
+
   return (
     <div className={cn("py-16 text-white", className)}>
       <div className="space-y-4 py-4">
@@ -28,7 +34,7 @@ export default async function Sidebar({ className }: SidebarProps) {
           </div>
 
           <div className="space-y-1 mt-12">
-            <DashboardNav items={navItems} />
+            <DashboardNav items={navItems(role)} />
           </div>
           <div className="flex justify-center">
             <DashboardCard />
