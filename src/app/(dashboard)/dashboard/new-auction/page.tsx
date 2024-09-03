@@ -12,20 +12,48 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import FormImages from "@/components/form-elements/form-images";
+import FormButtonSelection from "@/components/form-elements/form-button-selection";
+
+const imageSchema = z.object({
+  lastModified: z.number(), // Validates that the 'url' field is a valid URL string
+  lastModifiedDate: z.date().optional(), // Optional alt text field
+  name: z.string().optional(), // Optional alt text field
+  size: z.number().optional(), // Optional alt text field
+  type: z.string().optional(), // Optional alt text field
+  webkitRelativePath: z.string().optional(), // Optional alt text field
+  // Add more fields as needed
+});
 
 const formSchema = z.object({
-  carRegNo: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  carRegistrationNo: z.string().nonempty("Car registration number is required"),
+  place: z.string().nonempty("Place is required"),
+  description: z.string().nonempty("Description is required"),
+  images: z.array(imageSchema).nonempty("Images is Required"),
+  brand: z.string().nonempty("Brand is required"),
+  model: z.string().nonempty("Model is required"),
+  yearModel: z.string().nonempty("Year model is required"),
+  kilometer: z.string().nonempty("Kilometer is required"),
+  cylinderVolume: z.string().nonempty("Cylinder volume is required"),
+  effect: z.string().nonempty("Effect is required"),
+  color: z.string().nonempty("Color is required"),
+  gearType: z.string().nonempty("Gear type is required"),
+  operatingType: z.string().nonempty("Operating type is required"),
+  minimumPrice: z.string().nonempty("Minimum price is required"),
+  fuel: z.string().nonempty("Fuel type is required"),
+  descriptionCondition: z
+    .string()
+    .nonempty("Condition description is required"),
+  // equipment: z.string().nonempty("Equipment is required"),
+  // documents: z.array(DocumentSchema),
+  auctionTime: z.string().nonempty("Auction time is required"),
 });
 
 const NewAuction = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      carRegNo: "",
-    },
+    defaultValues: {},
   });
 
   // 2. Define a submit handler.
@@ -33,6 +61,13 @@ const NewAuction = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    // const obj = { ...values };
+    // const file = obj["file"];
+    // delete obj["file"];
+    // const data = JSON.stringify(obj);
+    // const formData = new FormData();
+    // formData.append("images", file as Blob);
+    // formData.append("data", data);
   }
 
   return (
@@ -49,7 +84,7 @@ const NewAuction = () => {
             <div className="flex gap-x-8 [&>*>*>label]:text-lg">
               <div className="basis-[25%]">
                 <FormInput
-                  name="carRegNo"
+                  name="carRegistrationNo"
                   label="Bilens regnr."
                   placeholder="NA 12345"
                   className="border-[#EBEBEB] py-6"
@@ -66,23 +101,24 @@ const NewAuction = () => {
               </div>
               <div className="basis-[50%]">
                 <FormInput
-                  name="shortDescription"
+                  name="description"
                   label="Kort beskrivelse "
                   placeholder="ACC/Coating/ Ny service"
                   className="border-[#EBEBEB] py-6"
                 />
               </div>
             </div>
-            <Alert className="bg-[#E8F9FF] px-10 border-none py-6">
+            {/* <Alert className="bg-[#E8F9FF] px-10 border-none py-6">
               <AlertDescription className="text-lg text-black text-center">
                 Last opp bilder ved å klikke her
                 <span className="text-primaryred"> Last opp</span>
               </AlertDescription>
-            </Alert>
+            </Alert> */}
+            <FormImages name="images" label="Images" />
             <div className="grid grid-cols-4 gap-8 [&>*>*>label]:text-lg">
               <div className="">
                 <FormInput
-                  name="marke"
+                  name="brand"
                   label="Merke"
                   placeholder="NA 12345"
                   className="border-[#EBEBEB] py-6"
@@ -98,7 +134,7 @@ const NewAuction = () => {
               </div>
               <div className="">
                 <FormInput
-                  name="arsmodell"
+                  name="yearModel"
                   label="Årsmodell"
                   placeholder="2020"
                   className="border-[#EBEBEB] py-6"
@@ -114,7 +150,7 @@ const NewAuction = () => {
               </div>
               <div className="">
                 <FormInput
-                  name="sylindervolum"
+                  name="cylinderVolume"
                   label="Sylindervolum"
                   placeholder=" 3.0"
                   className="border-[#EBEBEB] py-6"
@@ -130,7 +166,7 @@ const NewAuction = () => {
               </div>
               <div className="">
                 <FormSelect
-                  name="farge"
+                  name="color"
                   label="Farge"
                   placeholder="Velg farge"
                   className="border-[#EBEBEB]"
@@ -139,7 +175,7 @@ const NewAuction = () => {
               </div>
               <div className="">
                 <FormSelect
-                  name="girtype"
+                  name="gearType"
                   label="Girtype"
                   placeholder="Automat"
                   className="border-[#EBEBEB]"
@@ -149,7 +185,7 @@ const NewAuction = () => {
               <div className=""></div>
               <div className="[&>*>label]:text-lg">
                 <FormSelect
-                  name="driftstype"
+                  name="operatingType"
                   label="Driftstype"
                   placeholder="Firehjulstrekk"
                   className="border-[#EBEBEB]"
@@ -157,18 +193,19 @@ const NewAuction = () => {
                 />
               </div>
               <div className="[&>*>label]:text-lg">
-                <FormInput
-                  name="effect"
-                  label="Effekt"
-                  placeholder="330 hk"
-                  className="border-[#EBEBEB] py-6"
+                <FormSelect
+                  name="minimumPrice"
+                  label="Minimum pris"
+                  placeholder="100 000 kr"
+                  className="border-[#EBEBEB]"
+                  options={[{ label: "Option 1", value: "Option Value" }]}
                 />
               </div>
               <div className="[&>*>label]:text-lg">
                 <FormSelect
-                  name="minimumpris"
-                  label="Minimum pris"
-                  placeholder="100 000 kr"
+                  name="fuel"
+                  label="Drivstoff"
+                  placeholder="Diesel"
                   className="border-[#EBEBEB]"
                   options={[{ label: "Option 1", value: "Option Value" }]}
                 />
@@ -176,7 +213,7 @@ const NewAuction = () => {
             </div>
             <div className="[&>*>label]:text-lg">
               <FormTextArea
-                name="description"
+                name="descriptionCondition"
                 label="Beskrivelse - tilstand og egenerklæring"
                 placeholder="Legg inn"
               />
@@ -220,25 +257,19 @@ const NewAuction = () => {
               </Alert>
             </div>
             <div className="space-y-4">
-              <Label className="text-lg text-navyblue block">
+              {/* <Label className="text-lg text-navyblue block">
                 Velg auksjonstid
-              </Label>
-              <div className="flex gap-x-5 pl-52">
-                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
-                  24 timer
-                </Button>
-                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
-                  3 dager
-                </Button>
-                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
-                  5 dager
-                </Button>
-                <Button className="text-xs hover:bg-[#008B65] bg-navyblue h-auto px-8 rounded-lg">
-                  10 dager
-                </Button>
-              </div>
+              </Label> */}
+              <FormButtonSelection
+                name="auctionTime"
+                label="Velg auksjonstid"
+                options={["24 timer", "3 dager", "5 dager", "10 dager"]}
+              />
               <div className="flex justify-center gap-x-5 !mt-10">
-                <Button className="text-xl font-medium hover:bg-[#008B65] bg-primaryred h-auto px-20 rounded-sm py-4">
+                <Button
+                  type="submit"
+                  className="text-xl font-medium hover:bg-[#008B65] bg-primaryred h-auto px-20 rounded-sm py-4"
+                >
                   SEND FOR GODKJENNING
                 </Button>
                 <Button className="text-xl font-medium hover:bg-[#008B65] bg-[#0B5F7C] h-auto px-20 rounded-sm py-4">

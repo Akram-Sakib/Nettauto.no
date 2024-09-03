@@ -16,7 +16,7 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 export default async function Sidebar({ className }: SidebarProps) {
   // const session = (await getServerSession(authOptions)) as any;
   // const role = session?.role;
-  const role = "buyer";
+  const role = "seller";
 
   return (
     <div className={cn("py-16 text-white", className)}>

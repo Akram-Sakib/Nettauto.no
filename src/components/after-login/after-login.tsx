@@ -38,7 +38,7 @@ const AfterLogin = () => {
           description: "Updated Profile",
         });
 
-        router.push("/my-auctions");
+        router.push("/dashboard/my-auctions");
       } else {
         toast({
           variant: "destructive",

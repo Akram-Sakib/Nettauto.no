@@ -9,38 +9,43 @@ import type { NextRequest } from "next/server";
 // };
 
 
-const onlyForAdmin = (dynamicRoute: string) => {
-    return {
-        routes: ["/dashboard/manage-admins/super-admins"],
-        dynamicRoutes: [
-            `/dashboard/manage-admins/super-admins/${dynamicRoute}`,
-        ]
-    }
-};
+// const onlyForAdmin = (dynamicRoute: string) => {
+//     return {
+//         routes: ["/dashboard/manage-admins/super-admins"],
+//         dynamicRoutes: [
+//             `/dashboard/manage-admins/super-admins/${dynamicRoute}`,
+//         ]
+//     }
+// };
 
-const excludeForMemberAndAdmin = (dynamicRoute: string) => {
-    return {
-        routes: ["/dashboard/manage-admins/super-admins"],
-        dynamicRoutes: [
-            `/dashboard/manage-admins/super-admins/${dynamicRoute}`,
-            `/dashboard/manage-admins/admins/${dynamicRoute}`,
-            `/dashboard/manage-admins/grand-admins/${dynamicRoute}`,
-        ]
-    }
-};
+// const excludeForPrivateCustomerAndAdmin = (dynamicRoute: string) => {
+//     return {
+//         routes: ["/dashboard/manage-admins/super-admins"],
+//         dynamicRoutes: [
+//             `/dashboard/manage-admins/super-admins/${dynamicRoute}`,
+//             `/dashboard/manage-admins/admins/${dynamicRoute}`,
+//             `/dashboard/manage-admins/grand-admins/${dynamicRoute}`,
+//         ]
+//     }
+// };
 
-const excludeForMember = (dynamicRoute: string) => {
-    return {
-        routes: ["/dashboard/manage-admins", "/dashboard/membership", "/dashboard/members", "/dashboard/projects", "/dashboard/places/countries", "/dashboard/places/divisions", "/dashboard/places/districts", "/dashboard/places/police-stations", "/dashboard/places/post-offices"],
-        dynamicRoutes: [
-            `/dashboard/subscription/list/${dynamicRoute}`,
-        ]
-    }
-};
+// const excludeForPrivateCustomer = (dynamicRoute: string) => {
+//     return {
+//         routes: ["/dashboard/manage-admins", "/dashboard/membership", "/dashboard/members", "/dashboard/projects", "/dashboard/places/countries", "/dashboard/places/divisions", "/dashboard/places/districts", "/dashboard/places/police-stations", "/dashboard/places/post-offices"],
+//         dynamicRoutes: [
+//             `/dashboard/subscription/list/${dynamicRoute}`,
+//         ]
+//     }
+// };
 
-const onlyForMember = () => {
+const onlyForPrivateCustomer = () => {
     return {
-        routes: ["/dashboard/subscription/list/buy-subscription"],
+        routes: ["/dashboard/my-auctions", "/dashboard/sold-cars", "/dashboard/alerts", "/dashboard/innstillinger", "/dashboard/new-auction"],
+    }
+}
+const onlyForBusinessCustomer = () => {
+    return {
+        routes: ["/dashboard/my-auctions", "/dashboard/sold-cars", "/dashboard/alerts", "/dashboard/innstillinger"],
     }
 }
 
@@ -56,10 +61,10 @@ export async function middleware(request: NextRequest) {
 
     const role = token?.role as string;
 
-    const isGrandAdmin = role === "grand_admin";
     const isSuperAdmin = role === "super_admin";
     const isAdmin = role === "admin";
-    const isMember = role === "member";
+    const isPrivateCustomer = role === "private_customer";
+    const isBusinessCustomer = role === "business_customer";
 
 
     if (!token && pathname !== "/login") {
@@ -68,36 +73,36 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL("/", request.nextUrl));
     }
 
-    if (!isMember) {
-        const redirectRoute = onlyForMember().routes.find(route => pathname.startsWith(route));
+    if (!isBusinessCustomer) {
+        const redirectRoute = onlyForPrivateCustomer().routes.find(route => pathname.startsWith(route));
         if (redirectRoute) {
-            return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
+            return NextResponse.redirect(new URL("/", request.nextUrl));
         }
     }
 
     // Prioritize Grand Admin check for unrestricted access
-    if (isGrandAdmin) {
-        return NextResponse.next();
-    }
+    // if (isSuperAdmin) {
+    //     return NextResponse.next();
+    // }
 
-    if (!isGrandAdmin && pathname.startsWith(onlyForAdmin(pathname.split("/")[4]).dynamicRoutes[0])) {
-        return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
-    }
-    if (isAdmin || isMember) {
-        const redirectRoute = excludeForMemberAndAdmin(pathname.split("/")[4]).routes.find(route => pathname.startsWith(route));
-        const redirectDynamicRoute = excludeForMemberAndAdmin(pathname.split("/")[4]).dynamicRoutes.find(route => pathname.startsWith(route));
-        if (redirectRoute || redirectDynamicRoute) {
-            return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
-        }
-    }
+    // if (!isSuperAdmin && pathname.startsWith(onlyForAdmin(pathname.split("/")[4]).dynamicRoutes[0])) {
+    //     return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
+    // }
+    // if (isAdmin || isPrivateCustomer) {
+    //     const redirectRoute = excludeForPrivateCustomerAndAdmin(pathname.split("/")[4]).routes.find(route => pathname.startsWith(route));
+    //     const redirectDynamicRoute = excludeForPrivateCustomerAndAdmin(pathname.split("/")[4]).dynamicRoutes.find(route => pathname.startsWith(route));
+    //     if (redirectRoute || redirectDynamicRoute) {
+    //         return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
+    //     }
+    // }
 
-    if (isMember) {
-        const redirectRoute = excludeForMember(pathname.split("/")[4]).routes.find(route => pathname.startsWith(route));
-        const redirectDynamicRoute = excludeForMember(pathname.split("/")[4]).dynamicRoutes.find(route => pathname.startsWith(route));
-        if (redirectRoute || (!(redirectDynamicRoute as any)?.includes("/buy-subscription") && redirectDynamicRoute)) {
-            return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
-        }
-    }
+    // if (isPrivateCustomer) {
+    //     const redirectRoute = excludeForPrivateCustomer(pathname.split("/")[4]).routes.find(route => pathname.startsWith(route));
+    //     const redirectDynamicRoute = excludeForPrivateCustomer(pathname.split("/")[4]).dynamicRoutes.find(route => pathname.startsWith(route));
+    //     if (redirectRoute || (!(redirectDynamicRoute as any)?.includes("/buy-subscription") && redirectDynamicRoute)) {
+    //         return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
+    //     }
+    // }
 
     return NextResponse.next();
 }
@@ -110,5 +115,5 @@ export const config = {
 
         // Enable redirects that add missing locales
         // (e.g. `/pathnames` -> `/en/pathnames`)
-        "/projects", "/login", "/dashboard/:page*"],
+        "/login", "/dashboard/:page*"],
 };

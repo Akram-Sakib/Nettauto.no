@@ -63,12 +63,16 @@ export const navItems = (role: string): NavItem[] => [
         href: "/dashboard/innstillinger",
         label: "Innstillinger",
     },
+    {
+        title: "Logout",
+        label: "logout",
+    },
 ].filter(item => {
     if (role === "seller") {
-        const renderPages = ["Mine auksjoner", "Solgte biler", "Varsler"];
+        const renderPages = ["Mine auksjoner", "Solgte biler", "Varsler", "Innstillinger", "Logout"];
         return renderPages.includes(item.title);
     } else if (role === "buyer") {
-        const renderPages = ["Bedriftskunder", "Varsler", "Innstillinger"];
+        const renderPages = ["Bedriftskunder", "Varsler", "Innstillinger", "Logout"];
         return renderPages.includes(item.title); // Hide only Membership for admin
     }
     else if (role === "admin") {
