@@ -30,7 +30,7 @@ const FormImages = ({
     if (imageList.length > 0) {
       setValue(
         name,
-        imageList.map((img: any) => img.file)
+        imageList
       );
     }
   };

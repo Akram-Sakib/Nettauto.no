@@ -2,34 +2,41 @@
 
 import { z } from "zod";
 
+import FormButtonSelection from "@/components/form-elements/form-button-selection";
+import FormEquipments from "@/components/form-elements/form-equipments";
+import FormImages from "@/components/form-elements/form-images";
 import FormInput from "@/components/form-elements/form-input";
 import FormSelect from "@/components/form-elements/form-select";
 import FormTextArea from "@/components/form-elements/form-textarea";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { toast } from "@/components/ui/use-toast";
+import { QueryKeys } from "@/data/queryKeys";
+import { axiosInstance } from "@/helpers/axios/axiosInstance";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
-import FormImages from "@/components/form-elements/form-images";
-import FormButtonSelection from "@/components/form-elements/form-button-selection";
+import FormFiles from "@/components/form-elements/form-files";
 
-const imageSchema = z.object({
-  lastModified: z.number(), // Validates that the 'url' field is a valid URL string
-  lastModifiedDate: z.date().optional(), // Optional alt text field
-  name: z.string().optional(), // Optional alt text field
-  size: z.number().optional(), // Optional alt text field
-  type: z.string().optional(), // Optional alt text field
-  webkitRelativePath: z.string().optional(), // Optional alt text field
-  // Add more fields as needed
-});
+// const imageSchema = z.object({
+//   // lastModified: z.number(), // Validates that the 'url' field is a valid URL string
+//   // lastModifiedDate: z.date().optional(), // Optional alt text field
+//   // name: z.string().optional(), // Optional alt text field
+//   // size: z.number().optional(), // Optional alt text field
+//   // type: z.string().optional(), // Optional alt text field
+//   // webkitRelativePath: z.string().optional(), // Optional alt text field
+//   // Add more fields as needed
+// });
 
 const formSchema = z.object({
   carRegistrationNo: z.string().nonempty("Car registration number is required"),
   place: z.string().nonempty("Place is required"),
   description: z.string().nonempty("Description is required"),
-  images: z.array(imageSchema).nonempty("Images is Required"),
+  images: z.any(),
+  // .nonempty("Images is Required")
   brand: z.string().nonempty("Brand is required"),
   model: z.string().nonempty("Model is required"),
   yearModel: z.string().nonempty("Year model is required"),
@@ -44,8 +51,8 @@ const formSchema = z.object({
   descriptionCondition: z
     .string()
     .nonempty("Condition description is required"),
-  // equipment: z.string().nonempty("Equipment is required"),
-  // documents: z.array(DocumentSchema),
+  equipment: z.array(z.string().nonempty("Equipment is required")),
+  pdfs: z.any(),
   auctionTime: z.string().nonempty("Auction time is required"),
 });
 
@@ -56,18 +63,79 @@ const NewAuction = () => {
     defaultValues: {},
   });
 
+  const queryClient = useQueryClient();
+  // const router = useRouter();
+  const { mutate: create, isPending: createIsPending } = useMutation({
+    mutationFn: async (data: any) => {
+      const res = await axiosInstance.post(`/auctions/create-auction`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return res;
+    },
+    onSuccess: (res: any) => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries({
+        queryKey: [QueryKeys.CAR],
+      });
+
+      if (res.success) {
+        toast({
+          variant: "default",
+          title: "New Car Auction Created Successfully",
+          description: "Updated Profile",
+        });
+
+        // router.push("/dashboard/my-auctions");
+      } else {
+        toast({
+          variant: "destructive",
+          title: res.message,
+          description: "There was a problem with your request.",
+        });
+      }
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+      });
+    },
+  });
+
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
-    // const obj = { ...values };
-    // const file = obj["file"];
-    // delete obj["file"];
-    // const data = JSON.stringify(obj);
-    // const formData = new FormData();
-    // formData.append("images", file as Blob);
-    // formData.append("data", data);
+
+    const formData = new FormData();
+    for (const key in values) {
+      if (key === "images") {
+        // Append each image individually
+        values.images.forEach((image: any) => {
+          formData.append("images", image.file);
+        });
+      } else if (key == "pdfs") {
+        // Append each pdf individually
+        values?.pdfs?.forEach((pdf: any) => {
+          formData.append("pdfs", pdf);
+        });
+      } 
+      else if (key === "equipment") {
+        // Append equipment array
+        values.equipment.forEach((item) => {
+          formData.append("equipment[]", item);
+        });
+      } 
+      else {
+        formData.append(key, (values as any)[key]);
+      }
+    }
+    // formData.append("images", values.images[0].file as Blob);
+    create(formData);
   }
 
   return (
@@ -82,6 +150,14 @@ const NewAuction = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="flex gap-x-8 [&>*>*>label]:text-lg">
+              {/* <FormFiles
+                name="images"
+                label="File Upload"
+                type="file"
+                multiple
+                placeholder="NA 12345"
+                className="border-[#EBEBEB] py-6"
+              /> */}
               <div className="basis-[25%]">
                 <FormInput
                   name="carRegistrationNo"
@@ -218,43 +294,37 @@ const NewAuction = () => {
                 placeholder="Legg inn"
               />
             </div>
-            <div>
-              <Label className="text-lg font-bold mb-5 block">Utstyr</Label>
-              <div className="grid grid-cols-4 gap-y-5 text-[#717171]">
-                <div className="space-y-4">
-                  <p>Auxiliary heating</p>
-                  <p>Bluetooth</p>
-                  <p>CD player</p>
-                  <p>Central locking</p>
-                </div>
-                <div className="space-y-4">
-                  <p>Auxiliary heating</p>
-                  <p>Bluetooth</p>
-                  <p>CD player</p>
-                  <p>Central locking</p>
-                </div>
-                <div className="space-y-4">
-                  <p>Auxiliary heating</p>
-                  <p>Bluetooth</p>
-                  <p>CD player</p>
-                  <p>Central locking</p>
-                </div>
-                <div className="space-y-4">
-                  <p>Auxiliary heating</p>
-                  <p>Bluetooth</p>
-                  <p>CD player</p>
-                  <p>Central locking</p>
-                </div>
-              </div>
-            </div>
+            <FormEquipments
+              label="Utstyr"
+              name="equipment"
+              equipments={[
+                "Auxiliary heating",
+                "Bluetooth",
+                "CD player",
+                "Central locking",
+                "Auxiliary heating",
+                "Bluetooth",
+                "CD player",
+                "Central locking",
+                "Auxiliary heating",
+                "Bluetooth",
+                "CD player",
+                "Central locking",
+                "Auxiliary heating",
+                "Bluetooth",
+                "CD player",
+                "Central locking",
+              ]}
+            />
             <div className="space-y-2">
-              <Label className="text-lg">Dokumenter</Label>
+              {/* <Label className="text-lg">Dokumenter</Label>
               <Alert className="bg-[#E8F9FF] px-10 border-none py-6">
                 <AlertDescription className="text-lg text-black text-center">
                   Last opp dokumenter
                   <span className="text-primaryred">(PDF)</span>
                 </AlertDescription>
-              </Alert>
+              </Alert> */}
+              <FormFiles name="pdfs" label="Dokumenter" />
             </div>
             <div className="space-y-4">
               {/* <Label className="text-lg text-navyblue block">
