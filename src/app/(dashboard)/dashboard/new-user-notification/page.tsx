@@ -2,6 +2,7 @@
 
 import { FaChevronDown } from "react-icons/fa6";
 
+import NewUsers from "@/components/new-user-notification/new-users";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,12 +16,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
-import { InputButton } from "@/components/ui/input-button";
-import { Search } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import Employee from "@/components/notfication/employee";
 
-const Notification = () => {
+const NewUserNotification = () => {
   return (
     <ScrollArea className="h-full bg-white pl-6">
       <div className="flex-1 space-y-10 p-4 md:p-8 pt-6">
@@ -69,24 +66,10 @@ const Notification = () => {
           </div>
         </div>
 
-        <div className="">
-          <div className="md: max-w-lg mx-auto">
-            <InputButton
-              endIcon={Search}
-              placeholder="Organisasjonsnr / Bedriftsnavn / Navn/ Telefon nr"
-              className="border-black border rounded-full py-7 px-6 text-black"
-            />
-          </div>
-          <Separator className="my-4 bg-[#EEEEEE]" />
-          <div className="space-y-10 mt-10">
-            <Employee />
-            <Employee />
-            <Employee />
-          </div>
-        </div>
+        <NewUsers />
       </div>
     </ScrollArea>
   );
 };
 
-export default Notification;
+export default NewUserNotification;

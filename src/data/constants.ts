@@ -14,7 +14,7 @@ export const navItems = (role: string): NavItem[] => [
     },
     {
         title: "Kunder for godkjenninger",
-        href: "/dashboard/notification",
+        href: "/dashboard/new-user-notification",
         label: "Notification",
     },
     {
